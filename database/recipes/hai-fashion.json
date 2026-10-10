@@ -1,0 +1,23 @@
+{
+  "title": "Hai fashion",
+  "portions": 1,
+  "season": "summer",
+  "ingredients": [
+    { "name": "pineapple gum syrup", "quantity": 0.25, "unit": "fl oz" },
+    { "name": "aged rum", "quantity": 1.5, "unit": "fl oz", "is_spirit": true, "family": "rum" },
+    { "name": "coffee liqueur", "quantity": 0.25, "unit": "fl oz", "is_spirit": true },
+    { "name": "orange bitters", "quantity": 1, "unit": "dash" },
+    {
+      "choice": [
+        { "name": "black walnut bitters", "quantity": 1, "unit": "dash" },
+        { "name": "cherry bark vanilla bitters", "quantity": 1, "unit": "dash" }
+      ]
+    },
+    { "name": "pineapple frond", "quantity": 1, "unit": "count", "note": "garnish" }
+  ],
+  "steps": [
+    "Add all ingredients to a mixing glass with ice. Stir 20 seconds.",
+    "Strain into a chilled rocks glass.",
+    "Garnish with pineapple frond."
+  ]
+}

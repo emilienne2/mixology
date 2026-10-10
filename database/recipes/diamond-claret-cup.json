@@ -1,0 +1,25 @@
+{
+  "title": "Diamond claret cup",
+  "portions": 1,
+  "season": "summer",
+  "ingredients": [
+    {
+      "choice": [
+        { "name": "strawberry brandy", "quantity": 1, "unit": "fl oz", "is_spirit": true },
+        { "name": "raspberry brandy", "quantity": 1, "unit": "fl oz", "is_spirit": true }
+      ]
+    },
+    { "name": "red wine", "quantity": 1, "unit": "fl oz", "is_spirit": true },
+    { "name": "lemon juice", "quantity": 0.75, "unit": "fl oz" },
+    { "name": "gum syrup", "quantity": 0.25, "unit": "fl oz" },
+    { "name": "grenadine syrup", "quantity": 0.25, "unit": "fl oz" },
+    { "name": "sparkling wine", "quantity": 0.5, "unit": "fl oz", "is_spirit": true },
+    { "name": "mint sprig", "note": "garnish" }
+  ],
+  "steps": [
+    "Add all ingredients except the sparkling wine and mint into a shaker with ice. Shake.",
+    "Strain into a glass with ice.",
+    "Top with the sparkling wine.",
+    "Garnish with the mint sprig."
+  ]
+}

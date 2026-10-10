@@ -1,0 +1,21 @@
+{
+  "title": "Love on the rocks",
+  "portions": 1,
+  "season": "spring",
+  "ingredients": [
+    { "name": "bourbon", "quantity": 1, "unit": "fl oz", "is_spirit": true, "family": "whiskey" },
+    { "name": "crème de cassis", "quantity": 0.5, "unit": "fl oz", "is_spirit": true },
+    { "name": "Apérol", "quantity": 0.5, "unit": "fl oz", "is_spirit": true },
+    { "name": "fresh lemon juice", "quantity": 0.5, "unit": "fl oz" },
+    { "name": "orange bitters", "quantity": 2, "unit": "dash" },
+    { "name": "sparkling wine", "note": "to top", "is_spirit": true },
+    { "name": "ice", "note": "for shaking and serving" },
+    { "name": "lemon twist", "quantity": 1, "unit": "count", "note": "garnish" }
+  ],
+  "steps": [
+    "Combine all ingredients except the sparkling wine with ice and shake.",
+    "Strain and pour over fresh ice.",
+    "Top with sparkling wine.",
+    "Garnish with a lemon twist."
+  ]
+}

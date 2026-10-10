@@ -1,0 +1,22 @@
+{
+  "title": "Apple bourbon",
+  "portions": 1,
+  "season": "autumn",
+  "ingredients": [
+    { "name": "bourbon", "quantity": 1.5, "unit": "fl oz", "is_spirit": true, "family": "whiskey" },
+    {
+      "choice": [
+        { "name": "freshly squeezed apple juice", "quantity": 2, "unit": "fl oz" },
+        { "name": "freshly pressed apple cider", "quantity": 2, "unit": "fl oz" }
+      ]
+    },
+    { "name": "cranberry-vanilla simple syrup", "quantity": 0.5, "unit": "fl oz" },
+    { "name": "cinnamon stick", "quantity": 1, "unit": "count" },
+    { "name": "apple slices", "note": "to muddle", "optional": true }
+  ],
+  "steps": [
+    "Muddle the apple slices, if using.",
+    "Mix the bourbon, freshly squeezed apple juice or freshly pressed apple cider, cranberry-vanilla simple syrup, cinnamon stick, and apple slices, if using. Shake over ice.",
+    "Strain into a highball glass."
+  ]
+}

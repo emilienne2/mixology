@@ -1,0 +1,17 @@
+{
+  "title": "Cranberry Moscow mule",
+  "portions": 8,
+  "season": "winter",
+  "ingredients": [
+    { "name": "lime juice", "quantity": 2, "unit": "fl oz" },
+    { "name": "vodka", "quantity": 5, "unit": "fl oz", "is_spirit": true },
+    { "name": "vanilla-orange-cranberry simple syrup", "quantity": 7.5, "unit": "fl oz" },
+    { "name": "ginger beer", "quantity": 10, "unit": "fl oz" },
+    { "name": "candied cranberries", "note": "garnish" }
+  ],
+  "steps": [
+    "Mix the lime juice, vanilla-orange-cranberry simple syrup, and vodka, and shake.",
+    "Add the ginger beer.",
+    "Top with candied cranberries."
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "title": "Tres leches",
+  "portions": 1,
+  "season": "autumn",
+  "ingredients": [
+    { "name": "rum", "quantity": 1, "unit": "fl oz", "is_spirit": true, "family": "rum" },
+    { "name": "heavy cream", "quantity": 1, "unit": "fl oz" },
+    { "name": "sweetened condensed milk", "quantity": 1, "unit": "fl oz" },
+    { "name": "evaporated milk", "quantity": 1, "unit": "fl oz" },
+    {
+      "choice": [
+        { "name": "cinnamon" },
+        { "name": "pumpkin spice mix" }
+      ]
+    }
+  ],
+  "steps": [
+    "Mix all ingredients except spices over ice in a shaker for 20 seconds.",
+    "Strain into a glass with ice.",
+    "Top with spice."
+  ]
+}

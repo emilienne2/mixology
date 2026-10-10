@@ -1,0 +1,18 @@
+{
+  "title": "Nouveau sangaree",
+  "portions": 1,
+  "season": "summer",
+  "ingredients": [
+    { "name": "red wine", "quantity": 2, "unit": "fl oz", "is_spirit": true },
+    { "name": "strawberry brandy", "quantity": 1.5, "unit": "fl oz", "is_spirit": true },
+    { "name": "gin", "quantity": 0.5, "unit": "fl oz", "is_spirit": true },
+    { "name": "maple syrup", "quantity": 0.25, "unit": "fl oz" },
+    { "name": "Angostura bitters", "quantity": 2, "unit": "dash" },
+    { "name": "sliced strawberries", "note": "garnish" }
+  ],
+  "steps": [
+    "Mix all ingredients except the strawberries in a shaker. Shake over ice.",
+    "Strain into a cocktail glass.",
+    "Garnish with the sliced strawberries."
+  ]
+}

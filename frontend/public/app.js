@@ -1,6 +1,7 @@
 // Home page. Loaded from the bottom of index.html.
 
-// TODO: Replace this placeholder with distinct liqueur values from the recipes database.
+// TODO: Replace this placeholder with spirit names from the recipes database.
+// Each name is a checkbox. Search sends the checked names.
 const spiritsFromRecipes = [];
 
 // TODO: Replace this placeholder with drink titles from the recipes database.

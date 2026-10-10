@@ -1,0 +1,20 @@
+{
+  "title": "Grapefruit collins",
+  "portions": 1,
+  "season": "spring",
+  "ingredients": [
+    { "name": "Scotch whiskey", "quantity": 2, "unit": "fl oz", "is_spirit": true, "family": "whiskey" },
+    { "name": "freshly squeezed grapefruit juice", "quantity": 2, "unit": "fl oz" },
+    { "name": "lemon juice", "quantity": 0.5, "unit": "fl oz" },
+    { "name": "cranberry-vanilla simple syrup", "quantity": 0.5, "unit": "fl oz" },
+    { "name": "Peychaud's bitters", "quantity": 3, "unit": "dash" },
+    { "name": "egg white", "quantity": 1, "unit": "count", "note": "large" },
+    { "name": "grapefruit twist", "quantity": 1, "unit": "count", "note": "garnish" }
+  ],
+  "steps": [
+    "Mix all ingredients except the grapefruit twist. Dry shake without ice for 10 seconds.",
+    "Add ice and shake for another 10 seconds.",
+    "Strain into a glass with ice.",
+    "Garnish with the grapefruit twist."
+  ]
+}

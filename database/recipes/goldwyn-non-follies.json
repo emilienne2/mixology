@@ -1,0 +1,28 @@
+{
+  "title": "Goldwyn (non) follies",
+  "portions": 1,
+  "season": "autumn",
+  "ingredients": [
+    {
+      "choice": [
+        { "name": "gin", "quantity": 1.5, "unit": "fl oz", "is_spirit": true },
+        {
+          "name": "Three Spirit Livener",
+          "quantity": 1.5,
+          "unit": "fl oz",
+          "note": "watermelon, ginseng, guayusa, wild herbs, hibiscus, and pepper"
+        }
+      ]
+    },
+    { "name": "cranberry juice", "quantity": 1, "unit": "fl oz" },
+    { "name": "apple juice", "quantity": 1, "unit": "fl oz" },
+    { "name": "black tea", "quantity": 1, "unit": "fl oz", "note": "brewed, chilled, vanilla optional" },
+    { "name": "cranberry-vanilla simple syrup", "quantity": 0.5, "unit": "fl oz" },
+    { "name": "cinnamon stick", "quantity": 1, "unit": "count" },
+    { "name": "apple slices", "note": "to shake" }
+  ],
+  "steps": [
+    "Mix the gin or Three Spirit Livener, cranberry juice, apple juice, black tea, cranberry-vanilla simple syrup, cinnamon stick, and apple slices. The black tea is brewed, chilled, and optionally vanilla flavored. Shake over ice.",
+    "Strain into a coupe glass."
+  ]
+}

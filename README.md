@@ -1,6 +1,6 @@
 # Chez Émilienne 🥃
 
-This project (WIP) will be a full-stack, containerized cocktail recipe book and AI mixology assistant. It is a personal project. The recipe pages run now. The API and the database are still to come.
+This personal project (WIP) will be a full-stack, containerized cocktail recipe book and AI mixology assistant.
 
 ## 🏗️ Architecture & Stack
 
@@ -8,7 +8,7 @@ This project (WIP) will be a full-stack, containerized cocktail recipe book and 
 
 **Backend** (TODO) Python (FastAPI), packaged with Poetry
 
-**Database** (TODO) SQLite
+**Database** SQLite
 
 **Deployment** Containerized with Docker Compose, designed for local hosting (TODO) on a Beelink Mini PC via Cloudflare Tunnels.
 
@@ -28,3 +28,19 @@ To spin up the frontend (Nginx) and (once implemented - TODO) the backend locall
 Frontend accessible at: `http://localhost:8080` 
 
 Backend API will be accessible at: `http://localhost:8000`
+
+### Recipes database
+
+Recipe files in `database/recipes/` are the committed copy. `database/mixology.db` is built from them and is not committed. The site does not read this database yet.
+
+Build the full database from all committed recipe files:
+
+```
+docker run --rm -v "$PWD":/work -w /work python:3 python database/build_database.py
+```
+
+Add a new recipe to the existing database:
+
+```
+docker run --rm -v "$PWD":/work -w /work python:3 python database/add_recipe.py database/recipes/earl-grey-martini.json
+```

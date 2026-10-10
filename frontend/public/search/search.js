@@ -6,6 +6,7 @@ const criteria = {
 };
 
 // TODO: Replace this stand-in list with titles from the recipes database that match criteria.
+// A rum or rhum term matches every rum. A whiskey or whisky term matches every whiskey.
 function titlesForCriteria(criteria) {
   return [
     "Earl Grey Martini",
@@ -46,6 +47,6 @@ function recipePath(title) {
     .replace(/\p{M}/gu, "")
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-|-$/g, "");
+    .replace(/^-+|-+$/g, "");
   return `/recipes/${slug}`;
 }

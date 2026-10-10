@@ -1,0 +1,22 @@
+{
+  "title": "Strawberry rosé all day",
+  "portions": 1,
+  "season": "summer",
+  "ingredients": [
+    { "name": "strawberry brandy", "quantity": 1, "unit": "fl oz", "is_spirit": true },
+    { "name": "lime juice", "quantity": 0.75, "unit": "fl oz" },
+    {
+      "choice": [
+        { "name": "passion fruit syrup", "quantity": 0.75, "unit": "fl oz" },
+        { "name": "grenadine syrup", "quantity": 0.75, "unit": "fl oz" }
+      ]
+    },
+    { "name": "sparkling rosé wine", "quantity": 4, "unit": "fl oz", "note": "to top", "is_spirit": true }
+  ],
+  "steps": [
+    "Mix all ingredients except rosé.",
+    "Shake over ice for 20 seconds.",
+    "Strain into a glass.",
+    "Top with sparkling rosé."
+  ]
+}

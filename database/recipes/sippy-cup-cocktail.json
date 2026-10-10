@@ -1,0 +1,26 @@
+{
+  "title": "Sippy cup cocktail",
+  "portions": 1,
+  "season": "autumn",
+  "ingredients": [
+    { "name": "fiery ginger syrup", "quantity": 0.75, "unit": "fl oz" },
+    { "name": "amaro", "quantity": 1.5, "unit": "fl oz", "is_spirit": true },
+    { "name": "sweet vermouth", "quantity": 1, "unit": "fl oz", "is_spirit": true },
+    { "name": "lime juice", "quantity": 1, "unit": "fl oz" },
+    {
+      "choice": [
+        { "name": "Angostura bitters", "quantity": 2, "unit": "dash" },
+        { "name": "aromatic bitters", "quantity": 2, "unit": "dash" }
+      ]
+    },
+    { "name": "club soda", "quantity": 3, "unit": "fl oz" },
+    { "name": "orange wheel", "quantity": 1, "unit": "count", "note": "garnish" },
+    { "name": "mint", "note": "garnish" }
+  ],
+  "steps": [
+    "Add all ingredients except the club soda, orange wheel, and mint to a shaker with ice and shake for 5 seconds.",
+    "Strain into a chilled highball with ice.",
+    "Top with the club soda and stir.",
+    "Garnish with the orange wheel and mint."
+  ]
+}

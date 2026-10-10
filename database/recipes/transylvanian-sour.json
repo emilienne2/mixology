@@ -1,0 +1,19 @@
+{
+  "title": "Transylvanian sour",
+  "portions": 1,
+  "season": "winter",
+  "ingredients": [
+    { "name": "caramelized fig syrup", "quantity": 0.5, "unit": "fl oz" },
+    { "name": "Irish whiskey", "quantity": 2, "unit": "fl oz", "is_spirit": true, "family": "whiskey" },
+    { "name": "blood orange juice", "quantity": 0.5, "unit": "fl oz" },
+    { "name": "lemon juice", "quantity": 0.25, "unit": "fl oz" },
+    { "name": "ginger bitters", "quantity": 2, "unit": "dash" },
+    { "name": "egg white", "quantity": 0.5, "unit": "count", "note": "large" },
+    { "name": "dehydrated blood orange wheel", "quantity": 1, "unit": "count", "note": "garnish" }
+  ],
+  "steps": [
+    "Add all ingredients to a cocktail shaker. Add ice and shake hard for 10 seconds.",
+    "Strain into a chilled coupe.",
+    "Garnish with a dehydrated blood orange wheel."
+  ]
+}

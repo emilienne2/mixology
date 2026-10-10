@@ -1,0 +1,22 @@
+{
+  "title": "Riviera 75",
+  "portions": 1,
+  "season": "spring",
+  "ingredients": [
+    { "name": "blood orange cordial", "quantity": 0.5, "unit": "fl oz" },
+    { "name": "gin", "quantity": 1.5, "unit": "fl oz", "is_spirit": true },
+    {
+      "choice": [
+        { "name": "Campari", "quantity": 0.25, "unit": "fl oz", "is_spirit": true },
+        { "name": "Apérol", "quantity": 0.25, "unit": "fl oz", "is_spirit": true }
+      ]
+    },
+    { "name": "lemon juice", "quantity": 0.5, "unit": "fl oz" },
+    { "name": "peach bitters", "quantity": 2, "unit": "dash" },
+    { "name": "sparkling wine", "quantity": 2.5, "unit": "fl oz", "is_spirit": true }
+  ],
+  "steps": [
+    "Add all ingredients except the sparkling wine to a shaker with ice. Shake for 10 seconds.",
+    "Strain into a chilled flute and top with the sparkling wine."
+  ]
+}

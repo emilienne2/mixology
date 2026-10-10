@@ -1,0 +1,21 @@
+{
+  "title": "Pumpkin old fashioned à la mode",
+  "portions": 1,
+  "season": "autumn",
+  "ingredients": [
+    { "name": "bourbon", "quantity": 2, "unit": "fl oz", "is_spirit": true, "family": "whiskey" },
+    { "name": "heavy cream", "quantity": 2, "unit": "fl oz", "note": "up to 3 fl oz" },
+    { "name": "pumpkin purée", "quantity": 1, "unit": "tbsp" },
+    { "name": "maple syrup", "quantity": 0.5, "unit": "tbsp" },
+    { "name": "pumpkin pie spice", "quantity": 0.125, "unit": "tsp", "note": "up to 0.25 tsp" },
+    { "name": "vanilla extract", "quantity": 0.25, "unit": "tsp" },
+    { "name": "Angostura bitters", "quantity": 1, "unit": "dash" },
+    { "name": "rosemary", "note": "garnish", "optional": true },
+    { "name": "orange peel", "quantity": 1, "unit": "count", "note": "garnish", "optional": true }
+  ],
+  "steps": [
+    "Mix all ingredients except the rosemary and orange peel in a cocktail shaker. Begin with 2 fl oz of heavy cream and 1/8 tsp pumpkin pie spice if unsure of the taste. Shake over ice.",
+    "Strain into a low ball glass with ice.",
+    "Garnish with the rosemary and orange peel, if desired."
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "title": "Apples to oranges",
+  "portions": 1,
+  "season": "autumn",
+  "ingredients": [
+    { "name": "calvados", "quantity": 1, "unit": "fl oz", "is_spirit": true },
+    { "name": "bourbon", "quantity": 1, "unit": "fl oz", "is_spirit": true, "family": "whiskey" },
+    { "name": "extra dry vermouth", "quantity": 0.75, "unit": "fl oz", "is_spirit": true },
+    { "name": "Grand Marnier", "quantity": 0.5, "unit": "fl oz", "note": "or other cognac orange liqueur", "is_spirit": true },
+    {
+      "choice": [
+        { "name": "Combier elixir", "quantity": 3, "unit": "dash", "is_spirit": true },
+        { "name": "Cointreau", "quantity": 3, "unit": "dash", "is_spirit": true }
+      ]
+    },
+    { "name": "orange zest twist", "quantity": 1, "unit": "count", "note": "garnish" }
+  ],
+  "steps": [
+    "Stir all ingredients with ice and strain into a chilled glass.",
+    "Garnish with an orange zest twist."
+  ]
+}

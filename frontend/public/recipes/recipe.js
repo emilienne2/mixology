@@ -1,4 +1,4 @@
-// Recipe page. Loaded from recipes/index.html. The address is /recipes/<slug>.
+// Recipe page. Loaded from recipes/index.html. The address is /recipes/<path>.
 
 const seasons = {
   spring: "🌸 Spring",
@@ -15,36 +15,12 @@ const recipesBySlug = {
     season: "spring",
     portions: 4,
     ingredients: [
-      {
-        name: "Earl Grey tea leaves",
-        amounts: [
-          { quantity: 2, unit: "g", system: "metric" },
-          { quantity: 2, unit: "tsp", system: "us" },
-        ],
-      },
-      {
-        name: "gin",
-        amounts: [
-          { quantity: 180, unit: "ml", system: "metric" },
-          { quantity: 6, unit: "fl. oz.", system: "us" },
-        ],
-      },
+      { name: "Earl Grey tea leaves", quantity: 2, unit: "tsp" },
+      { name: "gin", quantity: 6, unit: "fl oz" },
       { name: "White sugar", note: "for glass rim" },
-      { name: "lemon", amounts: [{ quantity: 2, unit: "wedge" }] },
-      {
-        name: "freshly squeezed lemon juice",
-        amounts: [
-          { quantity: 90, unit: "ml", system: "metric" },
-          { quantity: 3, unit: "fl. oz.", system: "us" },
-        ],
-      },
-      {
-        name: "simple syrup",
-        amounts: [
-          { quantity: 115, unit: "ml", system: "metric" },
-          { quantity: 0.5, unit: "cup", system: "us" },
-        ],
-      },
+      { name: "lemon", quantity: 2, unit: "wedge" },
+      { name: "freshly squeezed lemon juice", quantity: 3, unit: "fl oz" },
+      { name: "simple syrup", quantity: 0.5, unit: "cup" },
     ],
     steps: [
       "Sprinkle tea leaves over gin and set aside to steep for 2 hours.",
@@ -80,8 +56,20 @@ const season = document.querySelector("#recipe-season");
 const waiting = document.querySelector("#recipe-waiting");
 
 let shownRecipe = null;
-let measureSystem = "metric";
+let measureSystem = "us";
 let chosenPortions = null;
+
+// US volume units. The metric toggle converts these to ml.
+// Under 20 ml, nearest 1. From 20 up to 100, nearest 5. From 100 up, nearest 10.
+// oz is weight. The metric toggle converts it to grams, nearest 1.
+const gramsPerOunce = 28.349523125;
+const mlPerUsUnit = {
+  "fl oz": 29.5735295625,
+  cup: 236.5882365,
+  pint: 473.176473,
+  tbsp: 14.78676478125,
+  tsp: 4.92892159375,
+};
 
 portionsInput.addEventListener("input", () => {
   const count = portionCount();
@@ -145,7 +133,7 @@ function showRecipe(recipe) {
 
   shownRecipe = recipe;
   chosenPortions = null;
-  setMeasureSystem("metric");
+  setMeasureSystem("us");
   chatLog.replaceChildren();
   title.textContent = recipe.title;
   document.title = `${recipe.title} — Chez Émilienne`;
@@ -232,43 +220,87 @@ function setMeasureSystem(system) {
 function renderIngredients(recipe, portions) {
   const scale = portions / recipe.portions;
   ingredientsList.replaceChildren();
-  for (const ingredient of recipe.ingredients) {
+  for (const group of ingredientGroups(recipe.ingredients)) {
     const item = document.createElement("li");
-    item.textContent = formatIngredient(ingredient, scale);
+    item.textContent = formatGroup(group, scale);
     ingredientsList.append(item);
   }
 }
 
+// Lines that share a choiceGroup are one slot. The cook uses one of them.
+function ingredientGroups(ingredients) {
+  const groups = [];
+  for (const ingredient of ingredients) {
+    const group = groups.at(-1);
+    if (ingredient.choiceGroup != null && group?.[0].choiceGroup === ingredient.choiceGroup) {
+      group.push(ingredient);
+    } else {
+      groups.push([ingredient]);
+    }
+  }
+  return groups;
+}
+
+function formatGroup(group, scale) {
+  const text = group.length > 1 ? formatChoice(group, scale) : formatIngredient(group[0], scale);
+  return group.every((ingredient) => ingredient.optional) ? `${text}, optional` : text;
+}
+
+function formatChoice(options, scale) {
+  const first = options[0];
+  const sharedMeasure = options.every(
+    (option) => option.quantity === first.quantity && option.unit === first.unit && option.quantity != null,
+  );
+  if (!sharedMeasure) {
+    return options.map((option) => formatIngredient(option, scale)).join(" or ");
+  }
+
+  const lead = formatIngredient(first, scale);
+  const firstName = first.unit === "count" ? pluralName(first.name, first.quantity * scale) : first.name;
+  const names = options
+    .map((option) => (option.unit === "count" ? pluralName(option.name, option.quantity * scale) : option.name))
+    .join(" or ");
+  if (lead.endsWith(firstName)) {
+    return `${lead.slice(0, -firstName.length)}${names}`;
+  }
+  return options.map((option) => formatIngredient(option, scale)).join(" or ");
+}
+
 function formatIngredient(ingredient, scale) {
-  const amounts = amountsForSystem(ingredient);
-  if (amounts.length === 0) {
+  if (ingredient.quantity == null || ingredient.unit == null) {
     return ingredient.note ? `${ingredient.name} (${ingredient.note})` : ingredient.name;
   }
 
-  const scaled = amounts.map((amount) => ({
-    quantity: amount.quantity * scale,
-    unit: amount.unit,
-  }));
-
-  if (scaled[0].unit === "wedge") {
-    const amount = scaled[0];
-    return `${formatQuantity(amount.quantity)} ${ingredient.name} ${pluralUnit(amount.unit, amount.quantity)}`;
+  const quantity = ingredient.quantity * scale;
+  if (ingredient.unit === "count") {
+    return `${formatQuantity(quantity)} ${pluralName(ingredient.name, quantity)}`;
   }
 
-  const [primary, ...rest] = scaled.map((amount) => formatMeasure(amount.quantity, amount.unit));
-  const extra = rest.length > 0 ? ` (${rest.join(" or ")})` : "";
-  return `${primary}${extra} ${ingredient.name}`;
+  if (ingredient.unit === "wedge") {
+    return `${formatQuantity(quantity)} ${ingredient.name} ${pluralUnit(ingredient.unit, quantity)}`;
+  }
+
+  if (measureSystem === "metric" && ingredient.unit === "oz") {
+    const grams = Math.max(1, Math.round(quantity * gramsPerOunce));
+    return `${formatQuantity(grams)} g ${ingredient.name}`;
+  }
+
+  if (measureSystem === "metric" && mlPerUsUnit[ingredient.unit]) {
+    return `${formatQuantity(metricMilliliters(quantity, ingredient.unit))} ml ${ingredient.name}`;
+  }
+
+  return `${formatMeasure(quantity, ingredient.unit)} ${ingredient.name}`;
 }
 
-function amountsForSystem(ingredient) {
-  if (!ingredient.amounts) {
-    return [];
+function metricMilliliters(quantity, unit) {
+  const ml = quantity * mlPerUsUnit[unit];
+  if (ml < 20) {
+    return Math.max(1, Math.round(ml));
   }
-  const inSystem = ingredient.amounts.filter((amount) => amount.system === measureSystem);
-  if (inSystem.length > 0) {
-    return inSystem;
+  if (ml < 100) {
+    return Math.round(ml / 5) * 5;
   }
-  return ingredient.amounts.filter((amount) => !amount.system);
+  return Math.round(ml / 10) * 10;
 }
 
 function formatMeasure(quantity, unit) {
@@ -291,8 +323,27 @@ function discussModification(question) {
   return "The assistant that answers recipe changes is not connected yet.";
 }
 
+function pluralName(name, quantity) {
+  if (quantity <= 1) {
+    return name;
+  }
+
+  // Ordered endings. leaf becomes leaves. ch, sh, s, x, and z gain es. A consonant plus y becomes ies.
+  const pluralEndings = [
+    [/leaf$/i, "leaves"],
+    [/(ch|sh|s|x|z)$/i, "$1es"],
+    [/([^aeiou])y$/i, "$1ies"],
+  ];
+  for (const [ending, plural] of pluralEndings) {
+    if (ending.test(name)) {
+      return name.replace(ending, plural);
+    }
+  }
+  return `${name}s`;
+}
+
 function pluralUnit(unit, quantity) {
-  const plurals = { jigger: "jiggers", cup: "cups", wedge: "wedges" };
+  const plurals = { cup: "cups", dash: "dashes", drop: "drops", pinch: "pinches", pint: "pints", wedge: "wedges" };
   if (!plurals[unit] || quantity <= 1) {
     return unit;
   }
@@ -305,6 +356,7 @@ function formatQuantity(value) {
   const fraction = rounded - whole;
   const glyphs = [
     [1 / 8, "⅛"],
+    [1 / 6, "⅙"],
     [1 / 4, "¼"],
     [1 / 3, "⅓"],
     [3 / 8, "⅜"],

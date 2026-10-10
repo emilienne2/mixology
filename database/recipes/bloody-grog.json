@@ -1,0 +1,22 @@
+{
+  "title": "Bloody grog",
+  "portions": 1,
+  "season": "autumn",
+  "ingredients": [
+    { "name": "grenadine syrup", "quantity": 0.5, "unit": "fl oz" },
+    { "name": "blood orange cordial", "quantity": 0.5, "unit": "fl oz" },
+    { "name": "Jamaican rum", "quantity": 2, "unit": "fl oz", "is_spirit": true, "family": "rum" },
+    { "name": "overproof 151° rum", "quantity": 0.5, "unit": "fl oz", "is_spirit": true, "family": "rum" },
+    { "name": "fresh lime juice", "quantity": 0.75, "unit": "fl oz" },
+    { "name": "cinnamon", "quantity": 1, "unit": "dash" },
+    { "name": "aromatic bitters", "quantity": 1, "unit": "dash" },
+    { "name": "Peychaud's bitters", "quantity": 1, "unit": "dash" },
+    { "name": "blood orange wheel", "quantity": 1, "unit": "count", "note": "garnish" },
+    { "name": "fresh mint", "note": "garnish" }
+  ],
+  "steps": [
+    "Add all ingredients to a cocktail shaker. Add ice and shake hard for 10 seconds.",
+    "Strain into a chilled rocks glass filled with crushed ice.",
+    "Garnish with a blood orange wheel and fresh mint."
+  ]
+}

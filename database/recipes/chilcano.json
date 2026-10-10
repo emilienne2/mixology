@@ -1,0 +1,23 @@
+{
+  "title": "Chilcano",
+  "portions": 1,
+  "season": "autumn",
+  "ingredients": [
+    { "name": "fiery ginger syrup", "quantity": 0.25, "unit": "fl oz" },
+    {
+      "choice": [
+        { "name": "gum syrup", "quantity": 0.5, "unit": "fl oz" },
+        { "name": "simple syrup", "quantity": 0.5, "unit": "fl oz" }
+      ]
+    },
+    { "name": "pisco", "quantity": 2, "unit": "fl oz", "is_spirit": true },
+    { "name": "lime juice", "quantity": 0.75, "unit": "fl oz" },
+    { "name": "club soda", "quantity": 2.5, "unit": "fl oz" },
+    { "name": "lime", "quantity": 1, "unit": "wedge", "note": "garnish" }
+  ],
+  "steps": [
+    "Add all ingredients except the club soda and lime wedge to a shaker filled with ice. Shake.",
+    "Pour into a glass and top with the club soda.",
+    "Garnish with the lime wedge."
+  ]
+}

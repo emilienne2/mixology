@@ -1,0 +1,25 @@
+{
+  "title": "Grapefruit strawberry mojito",
+  "portions": 1,
+  "season": "summer",
+  "ingredients": [
+    { "name": "fresh mint leaf", "quantity": 10, "unit": "count", "note": "medium" },
+    { "name": "sugar", "quantity": 1, "unit": "tsp" },
+    { "name": "strawberry", "quantity": 1, "unit": "count", "note": "medium, thinly sliced" },
+    { "name": "grapefruit slice", "quantity": 1, "unit": "count", "note": "1.5 inch, cut in half" },
+    { "name": "freshly squeezed grapefruit juice", "quantity": 4, "unit": "fl oz" },
+    {
+      "choice": [
+        { "name": "white rum", "quantity": 2, "unit": "fl oz", "is_spirit": true, "family": "rum" },
+        { "name": "silver rum", "quantity": 2, "unit": "fl oz", "is_spirit": true, "family": "rum" }
+      ]
+    },
+    { "name": "club soda", "quantity": 2, "unit": "fl oz" },
+    { "name": "ice", "note": "to fill the glass" }
+  ],
+  "steps": [
+    "Add the mint leaves, sugar, strawberry slices, and grapefruit slices (without rind) to a large cocktail glass. Muddle until sugar is dissolved.",
+    "Fill glass with ice. Add rum and grapefruit juice, then top with club soda. Gently stir.",
+    "Garnish."
+  ]
+}

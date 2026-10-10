@@ -1,0 +1,20 @@
+{
+  "title": "Subourbon",
+  "portions": 1,
+  "season": "autumn",
+  "ingredients": [
+    { "name": "fiery ginger syrup", "quantity": 0.5, "unit": "fl oz" },
+    { "name": "bourbon", "quantity": 2, "unit": "fl oz", "is_spirit": true, "family": "whiskey" },
+    { "name": "amaro", "quantity": 0.25, "unit": "fl oz", "is_spirit": true },
+    { "name": "lemon juice", "quantity": 0.5, "unit": "fl oz" },
+    { "name": "heavy cream", "quantity": 1, "unit": "fl oz" },
+    { "name": "orange bitters", "quantity": 2, "unit": "dash" },
+    { "name": "egg white", "quantity": 0.5, "unit": "count", "note": "large" },
+    { "name": "club soda", "quantity": 2, "unit": "fl oz" }
+  ],
+  "steps": [
+    "Add all ingredients except the club soda to a shaker without ice. Dry shake for 10 seconds.",
+    "Add ice and shake for 20 seconds.",
+    "Add the club soda to the highball glass first, then strain the cocktail into the glass."
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "title": "Ryenapple sour",
+  "portions": 1,
+  "season": "autumn",
+  "ingredients": [
+    { "name": "pineapple gum syrup", "quantity": 0.5, "unit": "fl oz" },
+    { "name": "fiery ginger syrup", "quantity": 0.1667, "unit": "fl oz" },
+    { "name": "rye whiskey", "quantity": 1.75, "unit": "fl oz", "is_spirit": true, "family": "whiskey" },
+    { "name": "coffee liqueur", "quantity": 0.5, "unit": "fl oz", "is_spirit": true },
+    { "name": "lemon juice", "quantity": 1, "unit": "fl oz" },
+    { "name": "Angostura bitters", "quantity": 2, "unit": "dash" },
+    { "name": "egg white", "quantity": 1, "unit": "count", "note": "large" },
+    { "name": "lemon twist", "quantity": 1, "unit": "count", "note": "garnish" }
+  ],
+  "steps": [
+    "Add all ingredients except the lemon twist to a shaker without ice and dry shake.",
+    "Add ice and shake again.",
+    "Strain into a chilled coupe.",
+    "Garnish with the lemon twist."
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "title": "Maple bourbon smash",
+  "portions": 1,
+  "season": "autumn",
+  "ingredients": [
+    { "name": "maple syrup", "quantity": 0.5, "unit": "fl oz" },
+    { "name": "fresh orange juice", "quantity": 0.5, "unit": "fl oz" },
+    { "name": "fresh lemon juice", "quantity": 0.25, "unit": "fl oz" },
+    { "name": "Angostura bitters", "quantity": 4, "unit": "dash" },
+    { "name": "bourbon", "quantity": 2, "unit": "fl oz", "is_spirit": true, "family": "whiskey" },
+    { "name": "club soda", "quantity": 1.5, "unit": "fl oz", "note": "to top" },
+    { "name": "orange wheel", "quantity": 0.5, "unit": "count", "optional": true }
+  ],
+  "steps": [
+    "In rocks glass, combine maple syrup, orange juice, lemon juice, bitters, and orange wheel if using.",
+    "Lightly muddle.",
+    "Add bourbon and stir well.",
+    "Fill glass with ice and top with club soda."
+  ]
+}

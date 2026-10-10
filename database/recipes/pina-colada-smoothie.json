@@ -1,0 +1,22 @@
+{
+  "title": "Piña colada smoothie",
+  "portions": 8,
+  "season": "summer",
+  "ingredients": [
+    { "name": "vanilla ice cream", "quantity": 1, "unit": "pint" },
+    { "name": "crushed pineapple", "quantity": 5, "unit": "oz", "note": "canned or frozen" },
+    {
+      "choice": [
+        { "name": "coconut cream", "quantity": 0.25, "unit": "cup" },
+        { "name": "coconut ice cream", "quantity": 0.25, "unit": "cup" }
+      ]
+    },
+    { "name": "pineapple juice", "quantity": 10, "unit": "fl oz" },
+    { "name": "rum", "quantity": 4, "unit": "fl oz", "is_spirit": true, "family": "rum" },
+    { "name": "lemon-lime soda", "quantity": 17, "unit": "fl oz" }
+  ],
+  "steps": [
+    "Mix all ingredients except the soda in a blender.",
+    "Top with the soda."
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "title": "Seven seas martini",
+  "portions": 1,
+  "season": "summer",
+  "ingredients": [
+    { "name": "Amaro Montenegro", "quantity": 1, "unit": "fl oz", "is_spirit": true },
+    { "name": "rum", "quantity": 1, "unit": "fl oz", "is_spirit": true, "family": "rum" },
+    { "name": "blue curaçao", "quantity": 1, "unit": "fl oz", "is_spirit": true },
+    {
+      "choice": [
+        { "name": "pineapple gum syrup", "quantity": 0.5, "unit": "fl oz" },
+        { "name": "pineapple juice", "quantity": 1.5, "unit": "fl oz" }
+      ]
+    },
+    { "name": "fresh pineapple", "note": "garnish" }
+  ],
+  "steps": [
+    "Mix ingredients in shaker filled with ice.",
+    "Shake well and strain into glass.",
+    "Garnish with fresh pineapple."
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "title": "Tea punch",
+  "portions": 4,
+  "season": "summer",
+  "ingredients": [
+    { "name": "unsweetened iced tea", "quantity": 4, "unit": "cup", "note": "Tejava" },
+    { "name": "freshly squeezed orange juice", "quantity": 0.25, "unit": "cup", "note": "about 1 orange" },
+    { "name": "freshly squeezed lime juice", "quantity": 1, "unit": "tbsp", "note": "about 1/2 lime" },
+    { "name": "pomegranate juice", "quantity": 0.5, "unit": "cup", "note": "Voilà" },
+    { "name": "freshly pressed apple cider", "quantity": 1.5, "unit": "cup" },
+    { "name": "simple syrup", "optional": true },
+    { "name": "orange", "note": "garnish" },
+    { "name": "lime", "note": "garnish" },
+    { "name": "rosemary", "note": "garnish" },
+    { "name": "pomegranate seeds", "note": "garnish" }
+  ],
+  "steps": [
+    "Squeeze about 1 orange for the freshly squeezed orange juice and about half a lime for the freshly squeezed lime juice. Slice that orange and lime for garnish.",
+    "Mix the unsweetened iced tea, freshly squeezed orange juice, freshly squeezed lime juice, pomegranate juice, freshly pressed apple cider, and simple syrup, if using, in a pitcher or punch bowl.",
+    "Top with the orange, lime, rosemary, and pomegranate seeds."
+  ]
+}

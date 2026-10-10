@@ -1,0 +1,35 @@
+{
+  "title": "Pomegranate mojito mocktail",
+  "portions": 1,
+  "season": "autumn",
+  "ingredients": [
+    { "name": "water", "quantity": 1, "unit": "cup" },
+    { "name": "sugar", "quantity": 1, "unit": "cup" },
+    { "name": "serrano pepper", "quantity": 2, "unit": "count", "optional": true },
+    { "name": "fresh mint leaf", "quantity": 5, "unit": "count", "note": "up to 6" },
+    {
+      "choice": [
+        { "name": "pomegranate juice", "quantity": 4, "unit": "fl oz" },
+        {
+          "name": "Trader Joe's Power of Seven purple juice",
+          "quantity": 4,
+          "unit": "fl oz",
+          "note": "pomegranate, tart cherry, black mulberry, red grape, purple carrot, cranberry, and blueberry"
+        }
+      ]
+    },
+    { "name": "freshly squeezed lime juice", "quantity": 0.5, "unit": "fl oz" },
+    { "name": "sparkling water", "quantity": 3, "unit": "fl oz", "note": "up to 4 fl oz" },
+    { "name": "pomegranate arils", "note": "garnish" },
+    { "name": "mint", "note": "garnish" },
+    { "name": "lime wedges", "note": "garnish" }
+  ],
+  "steps": [
+    "Make the serrano simple syrup. Slice the serrano peppers in half. Simmer the water and sugar. Add the serrano peppers, remove from the heat, and let it sit for 10 to 20 minutes. Strain. Leave out the serrano peppers for a plain syrup. If simple syrup is already available, skip this step.",
+    "Muddle 5 to 6 fresh mint leaves in the bottom of a glass.",
+    "Add crushed ice.",
+    "Pour in 1/12 of the syrup, about 1 fl oz, the pomegranate juice or Trader Joe's Power of Seven purple juice, and the freshly squeezed lime juice. Stir.",
+    "Top with the sparkling water, 3 to 4 fl oz.",
+    "Garnish with the pomegranate arils, mint, and lime wedges."
+  ]
+}

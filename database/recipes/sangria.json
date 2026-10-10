@@ -1,0 +1,20 @@
+{
+  "title": "Sangria",
+  "portions": 15,
+  "season": "summer",
+  "ingredients": [
+    { "name": "red wine", "quantity": 51, "unit": "fl oz", "is_spirit": true },
+    { "name": "port wine", "quantity": 7, "unit": "fl oz", "is_spirit": true },
+    { "name": "cognac", "quantity": 7, "unit": "fl oz", "is_spirit": true },
+    { "name": "orange", "quantity": 5, "unit": "count" },
+    { "name": "lemon-lime soda", "quantity": 17, "unit": "fl oz" },
+    { "name": "ice cube", "quantity": 15, "unit": "count" },
+    { "name": "apples, pears, peaches, or strawberries", "optional": true }
+  ],
+  "steps": [
+    "Mix the wine, port, cognac, and freshly squeezed juice of ~1/3 of the oranges.",
+    "Wash and dry the rest of the oranges and cut them into very small pieces. Add them to the drink.",
+    "If including additional fruits, cut and add them to the drink.",
+    "Right before serving, add the lemon-lime soda and the ice cubes."
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "title": "The bitter end",
+  "portions": 1,
+  "season": "winter",
+  "ingredients": [
+    { "name": "freshly brewed coffee", "quantity": 3, "unit": "fl oz", "note": "decaf optional" },
+    { "name": "whiskey", "quantity": 1.5, "unit": "fl oz", "is_spirit": true, "family": "whiskey", "optional": true },
+    { "name": "maple syrup", "quantity": 0.5, "unit": "fl oz" },
+    { "name": "heavy cream", "quantity": 2, "unit": "fl oz", "note": "or whipped" },
+    { "name": "cacao", "note": "garnish", "optional": true }
+  ],
+  "steps": [
+    "Brew the coffee.",
+    "Whip the cream, if making your own whipped cream.",
+    "Pour the coffee into a mug.",
+    "Add maple syrup and stir.",
+    "Add the whiskey. Optional: Before adding the whiskey, you can pour it into a shot glass and light it to add a smokey flavor.",
+    "Add the (whipped) cream.",
+    "Optionally, sprinkle some cacao atop."
+  ]
+}

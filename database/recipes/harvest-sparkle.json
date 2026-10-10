@@ -1,0 +1,25 @@
+{
+  "title": "Harvest sparkle",
+  "portions": 4,
+  "season": "autumn",
+  "ingredients": [
+    { "name": "honey", "quantity": 0.5, "unit": "cup" },
+    { "name": "freshly squeezed orange juice", "quantity": 1, "unit": "cup" },
+    { "name": "ground ginger", "quantity": 0.25, "unit": "tsp" },
+    { "name": "cinnamon", "quantity": 0.25, "unit": "tsp" },
+    { "name": "ground cloves", "quantity": 0.125, "unit": "tsp" },
+    {
+      "choice": [
+        { "name": "whiskey", "quantity": 4, "unit": "fl oz", "is_spirit": true, "family": "whiskey" },
+        { "name": "bourbon", "quantity": 4, "unit": "fl oz", "is_spirit": true, "family": "whiskey" }
+      ]
+    },
+    { "name": "sparkling wine", "quantity": 4, "unit": "fl oz", "is_spirit": true },
+    { "name": "rosemary sprig", "quantity": 2, "unit": "count", "note": "garnish" }
+  ],
+  "steps": [
+    "Make the cider syrup in a small saucepan over medium heat. Mix the honey, freshly squeezed orange juice, ground ginger, cinnamon, and ground cloves. Whisk until it starts to bubble. Remove from heat for 5 minutes. If cider syrup is already available, skip this step.",
+    "Mix the whiskey and 1/4 of the cider syrup over ice in a shaker.",
+    "Add the sparkling wine and garnish."
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "title": "The Aviator",
+  "portions": 1,
+  "season": "spring",
+  "ingredients": [
+    { "name": "gin", "quantity": 1.5, "unit": "fl oz", "is_spirit": true },
+    { "name": "Maraschino liqueur", "quantity": 0.5, "unit": "fl oz", "is_spirit": true },
+    { "name": "fresh lemon juice", "quantity": 0.75, "unit": "fl oz" },
+    { "name": "simple syrup", "quantity": 0.5, "unit": "fl oz" },
+    { "name": "orange bitters", "quantity": 2, "unit": "dash" },
+    { "name": "egg white", "quantity": 1, "unit": "count", "note": "large" },
+    { "name": "crème de cassis", "quantity": 0.5, "unit": "fl oz", "is_spirit": true },
+    { "name": "ice", "note": "for the second shake" }
+  ],
+  "steps": [
+    "In a cocktail shaker, combine all of the ingredients except the ice and crème de cassis. Shake vigorously for 30 seconds.",
+    "Add ice and shake again.",
+    "Strain into a martini glass.",
+    "Pour the crème de cassis on top."
+  ]
+}

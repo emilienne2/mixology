@@ -1,0 +1,19 @@
+{
+  "title": "Rosemary strawberry balsamic shrub",
+  "portions": 4,
+  "season": "summer",
+  "ingredients": [
+    { "name": "sugar", "quantity": 0.5, "unit": "cup" },
+    { "name": "sliced strawberries", "quantity": 1, "unit": "cup" },
+    { "name": "rosemary sprig", "quantity": 2, "unit": "count" },
+    { "name": "balsamic vinegar", "quantity": 0.5, "unit": "tbsp" },
+    { "name": "unpasteurized raw apple cider vinegar", "quantity": 7.5, "unit": "tbsp" },
+    { "name": "limoncello sparkling water", "quantity": 12, "unit": "fl oz"}
+  ],
+  "steps": [
+    "Mix the sliced strawberries and sugar in a bowl. Mash thoroughly. Cover and refrigerate for 36 to 48 hours so the strawberries macerate in their own juices.",
+    "Mix the balsamic vinegar and unpasteurized raw apple cider vinegar in a second bowl. Submerge one rosemary sprig. Cover and let it infuse for 36 to 48 hours.",
+    "Strain both bowls and mix them together.",
+    "Serve the shrub over ice with the limoncello sparkling water to taste, about 3 to 4 parts sparkling water to 1 part shrub. Garnish with the remaining rosemary sprig."
+  ]
+}

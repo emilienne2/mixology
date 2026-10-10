@@ -1,0 +1,18 @@
+{
+  "title": "Out of his gourd",
+  "portions": 1,
+  "season": "autumn",
+  "ingredients": [
+    { "name": "grenadine syrup", "quantity": 0.75, "unit": "fl oz" },
+    { "name": "lemon juice", "quantity": 0.75, "unit": "fl oz" },
+    { "name": "Scotch whiskey", "quantity": 1.5, "unit": "fl oz", "is_spirit": true, "family": "whiskey" },
+    { "name": "sherry", "quantity": 0.5, "unit": "fl oz", "is_spirit": true },
+    { "name": "pumpkin purée", "quantity": 2, "unit": "tsp", "note": "1-2 heaping barspoons" },
+    { "name": "lemon peel", "quantity": 1, "unit": "count", "note": "garnish" }
+  ],
+  "steps": [
+    "Add all ingredients to a cocktail shaker. Add ice and shake for 10 seconds.",
+    "Double strain into a chilled glass.",
+    "Garnish with lemon peel."
+  ]
+}

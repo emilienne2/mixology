@@ -1,0 +1,29 @@
+{
+  "title": "1870 sour",
+  "portions": 1,
+  "season": "autumn",
+  "ingredients": [
+    { "name": "whiskey", "quantity": 2, "unit": "fl oz", "is_spirit": true, "family": "whiskey" },
+    { "name": "lemon juice", "quantity": 1, "unit": "fl oz" },
+    { "name": "maple syrup", "quantity": 0.75, "unit": "fl oz" },
+    { "name": "egg white", "quantity": 1, "unit": "count", "note": "large" },
+    {
+      "choice": [
+        { "name": "blueberry jam", "quantity": 1, "unit": "tsp" },
+        { "name": "quatre fruits jam", "quantity": 1, "unit": "tsp" }
+      ]
+    },
+    {
+      "choice": [
+        { "name": "zinfandel", "quantity": 1, "unit": "fl oz", "is_spirit": true },
+        { "name": "primitivo", "quantity": 1, "unit": "fl oz", "is_spirit": true }
+      ]
+    }
+  ],
+  "steps": [
+    "Mix all ingredients except the wine in a shaker without ice.",
+    "Add ice and shake again.",
+    "Strain into a chilled glass.",
+    "Float the wine on top using a spoon."
+  ]
+}

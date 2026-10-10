@@ -1,0 +1,18 @@
+{
+  "title": "Knob kriek",
+  "portions": 1,
+  "season": "autumn",
+  "ingredients": [
+    { "name": "bourbon", "quantity": 1.5, "unit": "fl oz", "is_spirit": true, "family": "whiskey" },
+    { "name": "kriek lambic", "quantity": 6, "unit": "fl oz", "is_spirit": true },
+    { "name": "lemon juice", "quantity": 0.75, "unit": "fl oz" },
+    { "name": "maraschino liqueur", "quantity": 0.5, "unit": "fl oz", "is_spirit": true },
+    { "name": "brandied cherry", "quantity": 1, "unit": "count", "note": "garnish" }
+  ],
+  "steps": [
+    "Add the bourbon, lemon juice, and maraschino liqueur to a cocktail shaker. Shake over ice.",
+    "Strain into a glass.",
+    "Top with the kriek lambic and stir gently.",
+    "Garnish with a brandied cherry."
+  ]
+}

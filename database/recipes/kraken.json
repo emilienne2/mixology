@@ -1,0 +1,24 @@
+{
+  "title": "Kraken",
+  "portions": 1,
+  "season": "winter",
+  "ingredients": [
+    { "name": "caramelized fig syrup", "quantity": 0.5, "unit": "fl oz" },
+    { "name": "fiery ginger syrup", "quantity": 1, "unit": "tsp" },
+    { "name": "spiced rum", "quantity": 2, "unit": "fl oz", "is_spirit": true, "family": "rum" },
+    { "name": "lime juice", "quantity": 0.75, "unit": "fl oz" },
+    { "name": "salt", "quantity": 1, "unit": "pinch" },
+    { "name": "squid ink", "quantity": 1, "unit": "dash", "note": "decorative" },
+    {
+      "choice": [
+        { "name": "lime wheel", "quantity": 1, "unit": "count", "note": "garnish" },
+        { "name": "pirate's gold" }
+      ]
+    }
+  ],
+  "steps": [
+    "Add all ingredients to a cocktail shaker with ice. Shake until cold.",
+    "Strain over ice.",
+    "Garnish with lime wheel or pirate's gold."
+  ]
+}

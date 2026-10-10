@@ -1,0 +1,20 @@
+{
+  "title": "Cranberry gin fizz",
+  "portions": 4,
+  "season": "winter",
+  "ingredients": [
+    { "name": "lemon juice", "quantity": 1, "unit": "fl oz" },
+    { "name": "orange slices", "note": "to muddle" },
+    { "name": "vanilla-orange-cranberry simple syrup", "quantity": 5, "unit": "fl oz" },
+    { "name": "ginger beer", "quantity": 5, "unit": "fl oz" },
+    { "name": "dry gin", "quantity": 7.5, "unit": "fl oz", "is_spirit": true },
+    { "name": "candied cranberries", "note": "with the ginger beer" },
+    { "name": "mint sprig", "note": "garnish", "optional": true }
+  ],
+  "steps": [
+    "Mix the lemon juice, vanilla-orange-cranberry simple syrup, and gin.",
+    "Add the orange slices and muddle with a wooden spoon.",
+    "Add the candied cranberries and ginger beer.",
+    "If using, garnish with a mint sprig."
+  ]
+}

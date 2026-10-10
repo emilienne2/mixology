@@ -1,0 +1,20 @@
+{
+  "title": "Buried bastard",
+  "portions": 1,
+  "season": "autumn",
+  "ingredients": [
+    { "name": "fiery ginger syrup", "quantity": 0.5, "unit": "fl oz" },
+    { "name": "rum", "quantity": 0.5, "unit": "fl oz", "is_spirit": true, "family": "rum" },
+    { "name": "bourbon", "quantity": 0.5, "unit": "fl oz", "is_spirit": true, "family": "whiskey" },
+    { "name": "gin", "quantity": 0.5, "unit": "fl oz", "is_spirit": true },
+    { "name": "lime juice", "quantity": 0.5, "unit": "fl oz" },
+    { "name": "aromatic bitters", "quantity": 0.5, "unit": "fl oz" },
+    { "name": "orange wheel", "quantity": 1, "unit": "count", "note": "garnish" },
+    { "name": "mint", "note": "garnish" }
+  ],
+  "steps": [
+    "Add all ingredients to a cocktail shaker. Add ice and shake hard for 20 seconds.",
+    "Strain into a chilled rocks glass.",
+    "Garnish with orange wheel and mint."
+  ]
+}

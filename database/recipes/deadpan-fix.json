@@ -1,0 +1,24 @@
+{
+  "title": "Deadpan fix",
+  "portions": 1,
+  "season": "winter",
+  "ingredients": [
+    { "name": "fiery ginger syrup", "quantity": 0.25, "unit": "fl oz" },
+    { "name": "grapefruit cordial", "quantity": 0.5, "unit": "fl oz" },
+    { "name": "lemon juice", "quantity": 0.75, "unit": "fl oz" },
+    { "name": "rye whiskey", "quantity": 1.5, "unit": "fl oz", "is_spirit": true, "family": "whiskey" },
+    { "name": "orange liqueur", "quantity": 0.25, "unit": "fl oz", "is_spirit": true },
+    {
+      "choice": [
+        { "name": "Campari", "quantity": 0.25, "unit": "fl oz", "is_spirit": true },
+        { "name": "Apérol", "quantity": 0.25, "unit": "fl oz", "is_spirit": true }
+      ]
+    },
+    { "name": "orange twist", "quantity": 1, "unit": "count", "note": "garnish" }
+  ],
+  "steps": [
+    "Add all ingredients to a cocktail shaker. Add ice and shake hard for 20 seconds.",
+    "Strain into a chilled coup.",
+    "Garnish with an orange twist."
+  ]
+}

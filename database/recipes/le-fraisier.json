@@ -1,0 +1,20 @@
+{
+  "title": "Le fraisier",
+  "portions": 1,
+  "season": "spring",
+  "ingredients": [
+    { "name": "lime juice", "quantity": 0.5, "unit": "fl oz" },
+    { "name": "blood orange cordial", "quantity": 0.5, "unit": "fl oz" },
+    { "name": "strawberry liqueur", "quantity": 1, "unit": "fl oz", "is_spirit": true },
+    { "name": "gin", "quantity": 2, "unit": "fl oz", "is_spirit": true },
+    { "name": "cranberry-vanilla simple syrup", "quantity": 0.5, "unit": "fl oz" },
+    { "name": "egg white", "quantity": 1, "unit": "count", "note": "large" },
+    { "name": "strawberries", "note": "fresh or frozen", "optional": true }
+  ],
+  "steps": [
+    "Mix all ingredients except strawberries without ice (dry shake) for 15-20 seconds.",
+    "Add ice and shake again for 15-20 seconds.",
+    "Strain into a coupe.",
+    "Optionally add muddled strawberries."
+  ]
+}

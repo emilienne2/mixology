@@ -1,0 +1,18 @@
+{
+  "title": "Cherry bomb",
+  "portions": 1,
+  "season": "winter",
+  "ingredients": [
+    { "name": "tart cherry juice", "quantity": 1, "unit": "fl oz" },
+    { "name": "bourbon", "quantity": 0.75, "unit": "fl oz", "is_spirit": true, "family": "whiskey" },
+    { "name": "maple syrup", "quantity": 0.5, "unit": "fl oz" },
+    { "name": "vanilla extract", "quantity": 0.25, "unit": "fl oz" },
+    { "name": "lemon juice", "quantity": 0.25, "unit": "fl oz" },
+    { "name": "club soda", "optional": true }
+  ],
+  "steps": [
+    "Mix the tart cherry juice, bourbon, maple syrup, vanilla extract, and lemon juice. Shake over ice.",
+    "Strain.",
+    "Add club soda to taste, or serve over ice."
+  ]
+}

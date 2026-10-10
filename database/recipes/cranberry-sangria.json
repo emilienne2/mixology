@@ -1,0 +1,28 @@
+{
+  "title": "Cranberry sangria",
+  "portions": 4,
+  "season": "autumn",
+  "ingredients": [
+    { "name": "ruby port", "quantity": 12.7, "unit": "fl oz", "is_spirit": true },
+    { "name": "fresh cranberries", "quantity": 1, "unit": "cup" },
+    { "name": "cranberry juice", "quantity": 0.75, "unit": "cup", "note": "real" },
+    { "name": "freshly squeezed orange juice", "quantity": 0.25, "unit": "cup", "note": "1 medium orange" },
+    {
+      "choice": [
+        { "name": "triple sec", "quantity": 0.25, "unit": "cup", "is_spirit": true },
+        { "name": "Cointreau", "quantity": 0.25, "unit": "cup", "is_spirit": true },
+        { "name": "Grand Marnier", "quantity": 0.25, "unit": "cup", "is_spirit": true }
+      ]
+    },
+    { "name": "simple syrup", "quantity": 0.25, "unit": "cup" },
+    { "name": "club soda", "quantity": 1.5, "unit": "cup" },
+    { "name": "orange", "quantity": 1, "unit": "count", "note": "medium" },
+    { "name": "fresh cranberries", "note": "garnish" }
+  ],
+  "steps": [
+    "Squeeze one medium orange to make the freshly squeezed orange juice. Slice the other orange for garnish.",
+    "Mix the ruby port, fresh cranberries, cranberry juice, freshly squeezed orange juice, the orange liqueur, and simple syrup in a pitcher. Let the flavors infuse for at least 1 hour.",
+    "Top with the club soda just before serving.",
+    "Garnish with fresh cranberries and the sliced orange."
+  ]
+}

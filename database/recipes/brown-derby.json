@@ -1,0 +1,21 @@
+{
+  "title": "Brown derby",
+  "portions": 1,
+  "season": "autumn",
+  "ingredients": [
+    { "name": "bourbon", "quantity": 1, "unit": "fl oz", "is_spirit": true, "family": "whiskey" },
+    { "name": "grapefruit juice", "quantity": 1.5, "unit": "fl oz" },
+    {
+      "choice": [
+        { "name": "maple syrup", "quantity": 0.33, "unit": "fl oz" },
+        { "name": "honey", "quantity": 0.33, "unit": "fl oz" }
+      ]
+    },
+    { "name": "grapefruit zest twist", "quantity": 1, "unit": "count", "note": "garnish" }
+  ],
+  "steps": [
+    "Mix all ingredients and shake over ice.",
+    "Strain into glass.",
+    "Garnish."
+  ]
+}

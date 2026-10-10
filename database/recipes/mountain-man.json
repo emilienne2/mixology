@@ -1,0 +1,23 @@
+{
+  "title": "Mountain man",
+  "portions": 1,
+  "season": "autumn",
+  "ingredients": [
+    { "name": "fiery ginger syrup", "quantity": 0.25, "unit": "fl oz" },
+    { "name": "bourbon", "quantity": 2, "unit": "fl oz", "is_spirit": true, "family": "whiskey" },
+    { "name": "lemon juice", "quantity": 0.75, "unit": "fl oz" },
+    { "name": "maple syrup", "quantity": 0.25, "unit": "fl oz" },
+    {
+      "choice": [
+        { "name": "peach liqueur", "quantity": 0.25, "unit": "fl oz", "note": "Giffard Vigne de Pêche", "is_spirit": true },
+        { "name": "peach bitters" }
+      ]
+    },
+    { "name": "candied ginger", "note": "garnish" }
+  ],
+  "steps": [
+    "Add all ingredients to a cocktail shaker. Add ice and shake hard for 20 seconds.",
+    "Strain into a chilled rocks glass over fresh ice.",
+    "Garnish with candied ginger."
+  ]
+}

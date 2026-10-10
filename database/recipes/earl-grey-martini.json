@@ -1,0 +1,19 @@
+{
+  "title": "Earl Grey Martini",
+  "portions": 4,
+  "season": "spring",
+  "ingredients": [
+    { "name": "Earl Grey tea leaves", "quantity": 2, "unit": "tsp" },
+    { "name": "gin", "quantity": 6, "unit": "fl oz", "is_spirit": true },
+    { "name": "White sugar", "note": "for glass rim" },
+    { "name": "lemon", "quantity": 2, "unit": "wedge" },
+    { "name": "freshly squeezed lemon juice", "quantity": 3, "unit": "fl oz" },
+    { "name": "simple syrup", "quantity": 0.5, "unit": "cup" }
+  ],
+  "steps": [
+    "Sprinkle tea leaves over gin and set aside to steep for 2 hours.",
+    "Pour white sugar onto a small, shallow plate. Moisten the rims of the martini glasses with a wedge of lemon and dip into sugar.",
+    "Strain the infused gin.",
+    "Combine the gin, lemon juice, and simple syrup in a shaker with ice. Shake and strain into a martini glass."
+  ]
+}

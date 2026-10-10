@@ -1,0 +1,18 @@
+{
+  "title": "Memphis twist",
+  "portions": 7,
+  "season": "spring",
+  "ingredients": [
+    { "name": "blueberries", "quantity": 1, "unit": "pint" },
+    { "name": "sugar", "quantity": 1, "unit": "cup" },
+    { "name": "lavender", "quantity": 4, "unit": "tsp", "note": "up to 5 tsp" },
+    { "name": "apple cider vinegar", "quantity": 1, "unit": "cup" },
+    { "name": "lime sparkling water", "quantity": 23.8, "unit": "fl oz" }
+  ],
+  "steps": [
+    "Place the blueberries and sugar in a medium bowl. Crush and stir. Cover and refrigerate for 2 days.",
+    "Place 4 to 5 tsp lavender in a glass bowl or bottle with the apple cider vinegar for 2 days at room temperature.",
+    "Filter the lavender from the apple cider vinegar. Strain the blueberry juice. Mix 8.5 fl oz of the juice with 3.4 fl oz of the lavender apple cider vinegar. Save the remaining vinegar for a vinaigrette. Store the shrub in the fridge.",
+    "Mix 1 part shrub with 2 parts lime sparkling water."
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "title": "Raspberry cream mimosa",
+  "portions": 4,
+  "season": "spring",
+  "ingredients": [
+    { "name": "frozen raspberries", "quantity": 2, "unit": "cup" },
+    { "name": "sugar", "quantity": 0.1667, "unit": "cup" },
+    { "name": "heavy cream", "quantity": 1, "unit": "cup" },
+    { "name": "sparkling wine", "quantity": 25.4, "unit": "fl oz", "is_spirit": true },
+    { "name": "fresh raspberries", "note": "garnish" }
+  ],
+  "steps": [
+    "Prepare the raspberry cream: In a small saucepan, thaw frozen raspberries on medium heat until they've broken down and become soup-like. Add sugar to the saucepan, stirring until it dissolves. Remove from heat. Filter through a sieve to remove the raspberry seeds. Add the cream, stir, and chill. This raspberry cream can be prepared in advance and frozen.",
+    "Mix the raspberry cream with the sparkling wine and top with fresh raspberries."
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "title": "Spicy cocoa",
+  "portions": 2,
+  "season": "winter",
+  "ingredients": [
+    { "name": "coconut milk", "quantity": 13.5, "unit": "fl oz" },
+    { "name": "water", "quantity": 1, "unit": "cup" },
+    { "name": "sugar", "quantity": 2, "unit": "tbsp" },
+    { "name": "cinnamon", "quantity": 0.5, "unit": "tsp" },
+    { "name": "ground guajillo chile", "quantity": 0.5, "unit": "tsp" },
+    { "name": "natural cocoa powder", "quantity": 2, "unit": "tbsp" },
+    { "name": "vanilla extract", "quantity": 1, "unit": "tsp" },
+    { "name": "salt", "quantity": 0.25, "unit": "tsp" },
+    { "name": "cayenne pepper", "quantity": 1, "unit": "pinch" }
+  ],
+  "steps": [
+    "Combine the coconut milk and water in a saucepan and bring them to a boil.",
+    "Lower the heat to a simmer and whisk in the sugar until it dissolves.",
+    "Add the natural cocoa powder, cinnamon, cayenne pepper, ground guajillo chile, and salt. Whisk until completely combined.",
+    "Lower the heat and stir in the vanilla extract."
+  ]
+}

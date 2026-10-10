@@ -1,0 +1,21 @@
+{
+  "title": "Orange creamsicle",
+  "portions": 1,
+  "season": "summer",
+  "ingredients": [
+    { "name": "vodka", "quantity": 2, "unit": "fl oz", "is_spirit": true, "optional": true },
+    { "name": "freshly squeezed orange juice", "quantity": 3, "unit": "fl oz" },
+    {
+      "choice": [
+        { "name": "heavy cream", "quantity": 1.5, "unit": "fl oz" },
+        { "name": "coconut milk", "quantity": 1.5, "unit": "fl oz" }
+      ]
+    },
+    { "name": "vanilla extract", "quantity": 1, "unit": "dash" }
+  ],
+  "steps": [
+    "Mix all ingredients in a cocktail shaker.",
+    "Shake with ice for 20 seconds.",
+    "Serve over ice."
+  ]
+}

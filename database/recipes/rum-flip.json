@@ -1,0 +1,17 @@
+{
+  "title": "Rum flip",
+  "portions": 1,
+  "season": "winter",
+  "ingredients": [
+    { "name": "demerara gum syrup", "quantity": 0.5, "unit": "fl oz" },
+    { "name": "aged rum", "quantity": 2, "unit": "fl oz", "is_spirit": true, "family": "rum" },
+    { "name": "whole egg", "quantity": 1, "unit": "count" },
+    { "name": "nutmeg", "quantity": 1, "unit": "dash" }
+  ],
+  "steps": [
+    "Add all ingredients to a cocktail shaker and shake without ice.",
+    "Add ice and shake hard for another 10 seconds.",
+    "Double strain into a chilled coupe.",
+    "Top with a dash of nutmeg."
+  ]
+}

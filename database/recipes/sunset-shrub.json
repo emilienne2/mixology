@@ -1,0 +1,23 @@
+{
+  "title": "Sunset shrub",
+  "portions": 4,
+  "season": "summer",
+  "ingredients": [
+    { "name": "blackberries", "quantity": 1, "unit": "cup" },
+    { "name": "raspberries", "quantity": 1, "unit": "cup" },
+    { "name": "raw cane sugar", "quantity": 0.75, "unit": "cup" },
+    { "name": "red wine vinegar", "quantity": 0.25, "unit": "cup" },
+    {
+      "choice": [
+        { "name": "mango-orange sparkling water", "quantity": 10, "unit": "fl oz", "note": "Spindrift" },
+        { "name": "passionfruit-orange-guava sparkling water", "quantity": 10, "unit": "fl oz", "note": "Spindrift" }
+      ]
+    },
+    { "name": "freshly squeezed orange juice", "quantity": 10, "unit": "fl oz" }
+  ],
+  "steps": [
+    "Crush the blackberries and raspberries. Mix them with the raw cane sugar. Cover and refrigerate for 1 to 2 days so the berries macerate.",
+    "Strain the juice and mix it with the red wine vinegar. Refrigerate for at least 1 week before using.",
+    "Pour the sparkling water, add the shrub, and top with the freshly squeezed orange juice."
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "title": "Strawberry lemonade",
+  "portions": 2,
+  "season": "summer",
+  "ingredients": [
+    { "name": "freshly squeezed lemon juice", "quantity": 0.4, "unit": "cup" },
+    { "name": "strawberry simple syrup", "quantity": 0.25, "unit": "cup" },
+    { "name": "water", "quantity": 0.75, "unit": "cup", "note": "up to 1 cup" },
+    { "name": "ice cubes", "note": "for serving" },
+    { "name": "freshly sliced strawberries", "quantity": 0.25, "unit": "cup" },
+    { "name": "mint leaves", "note": "garnish", "optional": true }
+  ],
+  "steps": [
+    "Prepare the strawberry simple syrup: 1 part sugar, 1 part water, and 1 part sliced strawberries. Mix the sugar and water over heat, allowing the sugar to dissolve but ensuring the water does not boil. Once the sugar is dissolved, add the strawberries, crushing them as they soften. Remove from heat and strain. Chill.",
+    "Mix the lemon juice, chilled strawberry simple syrup, sliced strawberries, and water.",
+    "Serve over ice. Add the mint leaves, if using."
+  ]
+}

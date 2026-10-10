@@ -1,0 +1,20 @@
+{
+  "title": "Strawberry mojito mocktail",
+  "portions": 1,
+  "season": "summer",
+  "ingredients": [
+    { "name": "fresh mint leaf", "quantity": 10, "unit": "count", "note": "up to 15" },
+    { "name": "lime juice", "quantity": 2, "unit": "tbsp" },
+    { "name": "cranberry-vanilla simple syrup", "quantity": 2, "unit": "tbsp" },
+    { "name": "sparkling water", "quantity": 6, "unit": "fl oz" },
+    { "name": "frozen strawberry", "quantity": 5, "unit": "count", "note": "up to 10" },
+    { "name": "fresh mint leaf", "quantity": 1, "unit": "count", "note": "garnish" }
+  ],
+  "steps": [
+    "Add 10 to 15 fresh mint leaves and the lime juice to a glass. Muddle for 1 minute.",
+    "Add the cranberry-vanilla simple syrup and 5 to 10 frozen strawberries.",
+    "Top with the sparkling water.",
+    "Muddle the strawberries for extra flavor.",
+    "Garnish with a fresh mint leaf."
+  ]
+}
