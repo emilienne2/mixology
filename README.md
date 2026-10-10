@@ -1,6 +1,6 @@
 # Chez Émilienne 🥃
 
-This project (WIP) will be a full-stack, containerized cocktail recipe book and AI mixology assistant. Building as a personal project to showcase system design, relational data modeling, and self-hosted container infrastructure.
+This project (WIP) will be a full-stack, containerized cocktail recipe book and AI mixology assistant. It is a personal project. The recipe pages run now. The API and the database are still to come.
 
 ## 🏗️ Architecture & Stack
 
