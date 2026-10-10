@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chez Émilienne</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <h1>Chez Émilienne</h1>
+    </header>
+
+    <main class="app-container">
+      <div class="book-group">
+        <p class="tagline">What shall we mix today?</p>
+        <section class="recipe-book" aria-label="Find a drink">
+          <form id="find-drink" class="book-spread">
+            <div class="book-page book-page-left">
+              <div class="field">
+                <span id="spirit-label">Search by spirit</span>
+                <div class="combo">
+                  <button
+                    type="button"
+                    class="combo-toggle"
+                    id="spirit-toggle"
+                    aria-haspopup="listbox"
+                    aria-expanded="false"
+                    aria-controls="spirit-options"
+                    aria-labelledby="spirit-label"
+                  >
+                    Choose one or more
+                  </button>
+                  <!-- Options are distinct liqueur values from the recipes database. The list stays empty until that data is loaded. -->
+                  <ul
+                    id="spirit-options"
+                    class="combo-panel"
+                    role="listbox"
+                    aria-multiselectable="true"
+                    aria-labelledby="spirit-label"
+                    hidden
+                  ></ul>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="ingredients">Search by ingredients</label>
+                <!-- Free text. -->
+                <input
+                  id="ingredients"
+                  name="ingredients"
+                  type="text"
+                  autocomplete="off"
+                  placeholder="Type an ingredient"
+                />
+              </div>
+
+              <div class="field">
+                <label for="season">Search by season</label>
+                <!-- The four seasons are fixed. They do not come from the recipes database. -->
+                <select id="season" name="season">
+                  <option value="">Choose a season</option>
+                  <option value="spring">🌸 Spring</option>
+                  <option value="summer">😎 Summer</option>
+                  <option value="autumn">🎃 Autumn</option>
+                  <option value="winter">☃️ Winter</option>
+                </select>
+              </div>
+
+              <button type="submit" class="search-submit">🍸 Search</button>
+            </div>
+
+            <div class="book-spine" aria-hidden="true"></div>
+
+            <div class="book-page book-page-right">
+              <div class="field">
+                <label for="known-recipe">Find a recipe by name</label>
+                <!-- Options are drink titles from the recipes database. The list stays empty until that data is loaded. -->
+                <select id="known-recipe" name="known-recipe"></select>
+              </div>
+
+              <div class="surprise-block">
+                <!-- TODO: Open the selected recipe. Surprise me picks one at random once recipes are loaded. -->
+                <button type="button" class="surprise" id="surprise">🎲 Surprise me</button>
+                <p id="surprise-status" class="surprise-status" role="status"></p>
+              </div>
+            </div>
+          </form>
+        </section>
+      </div>
+    </main>
+
+    <!-- App script at the end of body so the DOM is ready when it runs -->
+    <script src="app.js"></script>
+  </body>
+</html>

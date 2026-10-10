@@ -1,0 +1,9 @@
+These notices cover the font files in frontend/public/fonts.
+
+Homemade Apple
+Copyright (c) 2010 by Font Diner, Inc. All rights reserved.
+Licensed under the Apache License, Version 2.0. See homemade-apple-LICENSE.txt.
+
+La Belle Aurore
+Copyright (c) 2010, Kimberly Geswein (kimberlygeswein.com)
+Licensed under the SIL Open Font License, Version 1.1. See la-belle-aurore-OFL.txt.

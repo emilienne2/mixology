@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recipe — Chez Émilienne</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <h1><a href="/">Chez Émilienne</a></h1>
+    </header>
+
+    <main class="app-container">
+      <div class="book-group">
+        <section class="recipe-book" aria-label="Recipe">
+          <div class="book-spread recipe-spread">
+            <div class="book-page book-page-left">
+              <h2 id="recipe-title" class="recipe-name"></h2>
+              <img id="recipe-photo" class="recipe-photo" alt="" hidden />
+              <div id="recipe-ingredients-block" hidden>
+                <div class="ingredients-head">
+                  <h3 class="recipe-heading">Ingredients</h3>
+                  <div class="ingredient-tools">
+                    <div class="portions" id="portions-control" hidden>
+                      <label class="portions-label" for="portions">Serves</label>
+                      <button type="button" id="portions-less" aria-label="Fewer portions">−</button>
+                      <input id="portions" type="number" min="1" step="1" inputmode="numeric" />
+                      <button type="button" id="portions-more" aria-label="More portions">+</button>
+                    </div>
+                    <div class="measures" role="group" aria-label="Measurement system">
+                      <button type="button" id="measure-metric" aria-pressed="true">Metric</button>
+                      <button type="button" id="measure-us" aria-pressed="false">US</button>
+                    </div>
+                  </div>
+                </div>
+                <ul id="recipe-ingredients" class="recipe-details"></ul>
+                <div class="recipe-chat" id="recipe-chat">
+                  <h3 class="recipe-heading">💡Get Creative</h3>
+                  <ol id="recipe-chat-log" class="recipe-chat-log"></ol>
+                  <form id="recipe-chat-form" class="recipe-chat-form">
+                    <input
+                      id="recipe-chat-input"
+                      type="text"
+                      aria-label="What shall we change?"
+                      placeholder="What shall we change?"
+                      autocomplete="off"
+                    />
+                    <button type="submit">Ask</button>
+                  </form>
+                </div>
+              </div>
+              <p id="recipe-waiting" class="recipe-waiting" hidden></p>
+            </div>
+
+            <div class="book-spine" aria-hidden="true"></div>
+
+            <div class="book-page book-page-right">
+              <div id="recipe-steps-block" hidden>
+                <h3 class="recipe-heading">Steps</h3>
+                <ol id="recipe-steps" class="recipe-details"></ol>
+              </div>
+              <p id="recipe-season" class="recipe-tags" hidden></p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script src="/recipes/recipe.js"></script>
+  </body>
+</html>

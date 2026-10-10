@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recipes — Chez Émilienne</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <h1><a href="/">Chez Émilienne</a></h1>
+    </header>
+
+    <main class="app-container">
+      <div class="book-group">
+        <section class="recipe-book" aria-label="Recipes">
+          <div class="book-spread results-spread">
+            <div class="book-page book-page-left">
+              <ul id="results-left" class="recipe-list"></ul>
+            </div>
+
+            <div class="book-spine" aria-hidden="true"></div>
+
+            <div class="book-page book-page-right">
+              <ul id="results-right" class="recipe-list"></ul>
+              <a class="new-search" href="/">Run a new search</a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script src="/search/search.js"></script>
+  </body>
+</html>
