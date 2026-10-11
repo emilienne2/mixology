@@ -8,7 +8,7 @@
     {
       "choice": [
         { "name": "maple syrup", "quantity": 0.33, "unit": "fl oz" },
-        { "name": "honey", "quantity": 0.33, "unit": "fl oz" }
+        { "name": "honey", "quantity": 0.33, "unit": "fl oz", "grams_per_cup": 336 }
       ]
     },
     { "name": "grapefruit zest twist", "quantity": 1, "unit": "count", "note": "garnish" }

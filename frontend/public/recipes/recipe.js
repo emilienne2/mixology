@@ -1,41 +1,7 @@
 // Recipe page. Loaded from recipes/index.html. The address is /recipes/<path>.
 
-const seasons = {
-  spring: "🌸 Spring",
-  summer: "😎 Summer",
-  autumn: "🎃 Autumn",
-  winter: "☃️ Winter",
-};
-
-// TODO: Replace this stand-in with the recipe from the database for this address.
-// A loaded recipe includes portions: the default batch, an integer of at least 1.
-const recipesBySlug = {
-  "earl-grey-martini": {
-    title: "Earl Grey Martini",
-    season: "spring",
-    portions: 4,
-    ingredients: [
-      { name: "Earl Grey tea leaves", quantity: 2, unit: "tsp" },
-      { name: "gin", quantity: 6, unit: "fl oz" },
-      { name: "White sugar", note: "for glass rim" },
-      { name: "lemon", quantity: 2, unit: "wedge" },
-      { name: "freshly squeezed lemon juice", quantity: 3, unit: "fl oz" },
-      { name: "simple syrup", quantity: 0.5, unit: "cup" },
-    ],
-    steps: [
-      "Sprinkle tea leaves over gin and set aside to steep for 2 hours.",
-      "Pour white sugar onto a small, shallow plate. Moisten the rims of the martini glasses with a wedge of lemon and dip into sugar.",
-      "Strain the infused gin.",
-      "Combine the gin, lemon juice, and simple syrup in a shaker with ice. Shake and strain into a martini glass.",
-    ],
-  },
-  "the-bitter-end": { title: "The Bitter End" },
-  "orange-creamsicle": { title: "Orange Creamsicle" },
-  "spicy-cocoa": { title: "Spicy Cocoa" },
-  "knob-kriek": { title: "Knob Kriek" },
-  "brown-derby": { title: "Brown Derby" },
-  "grapefruit-collins": { title: "Grapefruit Collins" },
-};
+// Filled from the seasons table. The key is the stored name, such as autumn.
+const seasonLabels = new Map();
 
 const title = document.querySelector("#recipe-title");
 const photo = document.querySelector("#recipe-photo");
@@ -62,7 +28,14 @@ let chosenPortions = null;
 // US volume units. The metric toggle converts these to ml.
 // Under 20 ml, nearest 1. From 20 up to 100, nearest 5. From 100 up, nearest 10.
 // oz is weight. The metric toggle converts it to grams, nearest 1.
+// A cup weight converts tsp, tbsp, cup, and pint of that ingredient to grams, nearest 1.
 const gramsPerOunce = 28.349523125;
+const cupsPerUsUnit = {
+  cup: 1,
+  tbsp: 1 / 16,
+  tsp: 1 / 48,
+  pint: 2,
+};
 const mlPerUsUnit = {
   "fl oz": 29.5735295625,
   cup: 236.5882365,
@@ -113,7 +86,30 @@ chatForm.addEventListener("submit", (event) => {
   appendChatMessage("Assistant", discussModification(question));
 });
 
-showRecipe(recipesBySlug[recipeSlug()]);
+const recipePath = recipeSlug();
+Promise.all([loadSeasons(), loadRecipe(recipePath)]).then(([, loadedRecipe]) => {
+  showRecipe(loadedRecipe);
+});
+
+function loadRecipe(path) {
+  if (path === "") {
+    return Promise.resolve(null);
+  }
+  return fetch(`/api/recipes/${encodeURIComponent(path)}`)
+    .then((response) => (response.ok ? response.json() : null))
+    .catch(() => null);
+}
+
+function loadSeasons() {
+  return fetch("/api/seasons")
+    .then((response) => (response.ok ? response.json() : []))
+    .then((rows) => {
+      for (const row of rows) {
+        seasonLabels.set(row.name, `${row.emoji} ${row.label}`);
+      }
+    })
+    .catch(() => {});
+}
 
 function recipeSlug() {
   const path = location.pathname.replace(/\/+$/, "");
@@ -163,8 +159,9 @@ function showRecipe(recipe) {
     stepsBlock.hidden = false;
   }
 
-  if (recipe.season && seasons[recipe.season]) {
-    season.textContent = seasons[recipe.season];
+  const seasonLabel = seasonLabels.get(recipe.season);
+  if (seasonLabel) {
+    season.textContent = seasonLabel;
     season.hidden = false;
   }
 
@@ -256,14 +253,23 @@ function formatChoice(options, scale) {
   }
 
   const lead = formatIngredient(first, scale);
-  const firstName = first.unit === "count" ? pluralName(first.name, first.quantity * scale) : first.name;
-  const names = options
-    .map((option) => (option.unit === "count" ? pluralName(option.name, option.quantity * scale) : option.name))
-    .join(" or ");
-  if (lead.endsWith(firstName)) {
-    return `${lead.slice(0, -firstName.length)}${names}`;
+  const firstName = displayedName(first, scale);
+  if (!lead.endsWith(firstName)) {
+    return options.map((option) => formatIngredient(option, scale)).join(" or ");
   }
-  return options.map((option) => formatIngredient(option, scale)).join(" or ");
+  const measure = lead.slice(0, -firstName.length);
+  const sameMeasure = options.every(
+    (option) => formatIngredient(option, scale) === `${measure}${displayedName(option, scale)}`,
+  );
+  if (!sameMeasure) {
+    return options.map((option) => formatIngredient(option, scale)).join(" or ");
+  }
+  const names = options.map((option) => displayedName(option, scale)).join(" or ");
+  return `${measure}${names}`;
+}
+
+function displayedName(ingredient, scale) {
+  return ingredient.unit === "count" ? pluralName(ingredient.name, ingredient.quantity * scale) : ingredient.name;
 }
 
 function formatIngredient(ingredient, scale) {
@@ -282,6 +288,11 @@ function formatIngredient(ingredient, scale) {
 
   if (measureSystem === "metric" && ingredient.unit === "oz") {
     const grams = Math.max(1, Math.round(quantity * gramsPerOunce));
+    return `${formatQuantity(grams)} g ${ingredient.name}`;
+  }
+
+  if (measureSystem === "metric" && ingredient.gramsPerCup != null && cupsPerUsUnit[ingredient.unit]) {
+    const grams = Math.max(1, Math.round(quantity * cupsPerUsUnit[ingredient.unit] * ingredient.gramsPerCup));
     return `${formatQuantity(grams)} g ${ingredient.name}`;
   }
 

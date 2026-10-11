@@ -8,6 +8,7 @@ class IngredientJson(TypedDict):
     note: NotRequired[str]
     is_spirit: NotRequired[bool]
     family: NotRequired[str]
+    grams_per_cup: NotRequired[int | float]
     optional: NotRequired[bool]
 
 
@@ -31,6 +32,7 @@ class Ingredient(TypedDict):
     note: str | None
     is_spirit: bool | None
     family: str | None
+    grams_per_cup: float | None
     choice_group: int | None
     optional: bool
     position: int

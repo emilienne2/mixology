@@ -8,7 +8,7 @@
     { "name": "Jamaican rum", "quantity": 2, "unit": "fl oz", "is_spirit": true, "family": "rum" },
     { "name": "overproof 151° rum", "quantity": 0.5, "unit": "fl oz", "is_spirit": true, "family": "rum" },
     { "name": "fresh lime juice", "quantity": 0.75, "unit": "fl oz" },
-    { "name": "cinnamon", "quantity": 1, "unit": "dash" },
+    { "name": "cinnamon", "quantity": 1, "unit": "dash", "grams_per_cup": 125 },
     { "name": "aromatic bitters", "quantity": 1, "unit": "dash" },
     { "name": "Peychaud's bitters", "quantity": 1, "unit": "dash" },
     { "name": "blood orange wheel", "quantity": 1, "unit": "count", "note": "garnish" },

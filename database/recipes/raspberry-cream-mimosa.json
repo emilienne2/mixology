@@ -3,10 +3,10 @@
   "portions": 4,
   "season": "spring",
   "ingredients": [
-    { "name": "frozen raspberries", "quantity": 2, "unit": "cup" },
-    { "name": "sugar", "quantity": 0.1667, "unit": "cup" },
+    { "name": "frozen raspberries", "quantity": 2, "unit": "cup", "grams_per_cup": 140 },
+    { "name": "sugar", "quantity": 0.1667, "unit": "cup", "grams_per_cup": 200 },
     { "name": "heavy cream", "quantity": 1, "unit": "cup" },
-    { "name": "sparkling wine", "quantity": 25.4, "unit": "fl oz", "is_spirit": true },
+    { "name": "sparkling wine", "quantity": 25.4, "unit": "fl oz", "is_spirit": true, "family": "wine" },
     { "name": "fresh raspberries", "note": "garnish" }
   ],
   "steps": [

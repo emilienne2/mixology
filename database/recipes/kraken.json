@@ -7,7 +7,7 @@
     { "name": "fiery ginger syrup", "quantity": 1, "unit": "tsp" },
     { "name": "spiced rum", "quantity": 2, "unit": "fl oz", "is_spirit": true, "family": "rum" },
     { "name": "lime juice", "quantity": 0.75, "unit": "fl oz" },
-    { "name": "salt", "quantity": 1, "unit": "pinch" },
+    { "name": "salt", "quantity": 1, "unit": "pinch", "grams_per_cup": 292 },
     { "name": "squid ink", "quantity": 1, "unit": "dash", "note": "decorative" },
     {
       "choice": [

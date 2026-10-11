@@ -3,8 +3,8 @@
   "portions": 15,
   "season": "summer",
   "ingredients": [
-    { "name": "red wine", "quantity": 51, "unit": "fl oz", "is_spirit": true },
-    { "name": "port wine", "quantity": 7, "unit": "fl oz", "is_spirit": true },
+    { "name": "red wine", "quantity": 51, "unit": "fl oz", "is_spirit": true, "family": "wine" },
+    { "name": "port wine", "quantity": 7, "unit": "fl oz", "is_spirit": true, "family": "wine" },
     { "name": "cognac", "quantity": 7, "unit": "fl oz", "is_spirit": true },
     { "name": "orange", "quantity": 5, "unit": "count" },
     { "name": "lemon-lime soda", "quantity": 17, "unit": "fl oz" },

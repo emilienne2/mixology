@@ -3,7 +3,7 @@
   "portions": 1,
   "season": "spring",
   "ingredients": [
-    { "name": "ice", "quantity": 0.75, "unit": "cup" },
+    { "name": "ice", "quantity": 0.75, "unit": "cup", "grams_per_cup": 140 },
     { "name": "blood orange syrup", "quantity": 1.25, "unit": "fl oz", "note": "or other fruit syrup" },
     { "name": "heavy cream", "quantity": 2, "unit": "fl oz" },
     { "name": "club soda", "quantity": 2, "unit": "fl oz", "note": "up to 4 fl oz" }

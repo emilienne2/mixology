@@ -9,11 +9,11 @@
         { "name": "raspberry brandy", "quantity": 1, "unit": "fl oz", "is_spirit": true }
       ]
     },
-    { "name": "red wine", "quantity": 1, "unit": "fl oz", "is_spirit": true },
+    { "name": "red wine", "quantity": 1, "unit": "fl oz", "is_spirit": true, "family": "wine" },
     { "name": "lemon juice", "quantity": 0.75, "unit": "fl oz" },
     { "name": "gum syrup", "quantity": 0.25, "unit": "fl oz" },
     { "name": "grenadine syrup", "quantity": 0.25, "unit": "fl oz" },
-    { "name": "sparkling wine", "quantity": 0.5, "unit": "fl oz", "is_spirit": true },
+    { "name": "sparkling wine", "quantity": 0.5, "unit": "fl oz", "is_spirit": true, "family": "wine" },
     { "name": "mint sprig", "note": "garnish" }
   ],
   "steps": [

@@ -5,9 +5,9 @@
   "ingredients": [
     { "name": "bourbon", "quantity": 2, "unit": "fl oz", "is_spirit": true, "family": "whiskey" },
     { "name": "heavy cream", "quantity": 2, "unit": "fl oz", "note": "up to 3 fl oz" },
-    { "name": "pumpkin purée", "quantity": 1, "unit": "tbsp" },
+    { "name": "pumpkin purée", "quantity": 1, "unit": "tbsp", "grams_per_cup": 245 },
     { "name": "maple syrup", "quantity": 0.5, "unit": "tbsp" },
-    { "name": "pumpkin pie spice", "quantity": 0.125, "unit": "tsp", "note": "up to 0.25 tsp" },
+    { "name": "pumpkin pie spice", "quantity": 0.125, "unit": "tsp", "note": "up to 0.25 tsp", "grams_per_cup": 96 },
     { "name": "vanilla extract", "quantity": 0.25, "unit": "tsp" },
     { "name": "Angostura bitters", "quantity": 1, "unit": "dash" },
     { "name": "rosemary", "note": "garnish", "optional": true },

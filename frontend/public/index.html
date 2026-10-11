@@ -17,72 +17,80 @@
         <section class="recipe-book" aria-label="Find a drink">
           <form id="find-drink" class="book-spread">
             <div class="book-page book-page-left">
-              <div class="field">
-                <span id="spirit-label">Search by spirit</span>
-                <div class="combo">
-                  <button
-                    type="button"
-                    class="combo-toggle"
-                    id="spirit-toggle"
-                    aria-haspopup="listbox"
-                    aria-expanded="false"
-                    aria-controls="spirit-options"
-                    aria-labelledby="spirit-label"
-                  >
-                    Choose one or more
-                  </button>
-                  <!-- Options are spirit names from the recipes database. The list stays empty until that data is loaded. -->
-                  <ul
-                    id="spirit-options"
-                    class="combo-panel"
-                    role="listbox"
-                    aria-multiselectable="true"
-                    aria-labelledby="spirit-label"
-                    hidden
-                  ></ul>
+              <div class="aligned-fields">
+                <div class="field">
+                  <span id="spirit-label">Search by spirit</span>
+                  <div class="combo">
+                    <button
+                      type="button"
+                      class="combo-toggle"
+                      id="spirit-toggle"
+                      aria-haspopup="listbox"
+                      aria-expanded="false"
+                      aria-controls="spirit-options"
+                      aria-labelledby="spirit-label"
+                    >
+                      Choose one or more
+                    </button>
+                    <!-- Options are spirit names from the recipes database. The list stays empty until that data is loaded. -->
+                    <ul
+                      id="spirit-options"
+                      class="combo-panel"
+                      role="listbox"
+                      aria-multiselectable="true"
+                      aria-labelledby="spirit-label"
+                      hidden
+                    ></ul>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label for="ingredients">Search by ingredients</label>
+                  <!-- Free text. -->
+                  <input
+                    id="ingredients"
+                    name="ingredients"
+                    type="text"
+                    autocomplete="off"
+                    placeholder="Type an ingredient"
+                  />
                 </div>
               </div>
 
-              <div class="field">
-                <label for="ingredients">Search by ingredients</label>
-                <!-- Free text. -->
-                <input
-                  id="ingredients"
-                  name="ingredients"
-                  type="text"
-                  autocomplete="off"
-                  placeholder="Type an ingredient"
-                />
-              </div>
+              <div class="page-rest">
+                <div class="field">
+                  <label for="season">Search by season</label>
+                  <!-- Options come from the seasons table. -->
+                  <select id="season" name="season">
+                    <option value="">Choose a season</option>
+                  </select>
+                </div>
 
-              <div class="field">
-                <label for="season">Search by season</label>
-                <!-- The four seasons are fixed. They do not come from the recipes database. -->
-                <select id="season" name="season">
-                  <option value="">Choose a season</option>
-                  <option value="spring">🌸 Spring</option>
-                  <option value="summer">😎 Summer</option>
-                  <option value="autumn">🎃 Autumn</option>
-                  <option value="winter">☃️ Winter</option>
-                </select>
+                <button type="submit" class="search-submit">🍸 Search</button>
+                <p id="search-status" class="surprise-status" role="status"></p>
               </div>
-
-              <button type="submit" class="search-submit">🍸 Search</button>
             </div>
 
             <div class="book-spine" aria-hidden="true"></div>
 
             <div class="book-page book-page-right">
-              <div class="field">
-                <label for="known-recipe">Find a recipe by name</label>
-                <!-- Options are drink titles from the recipes database. The list stays empty until that data is loaded. -->
-                <select id="known-recipe" name="known-recipe"></select>
+              <div class="aligned-fields">
+                <button type="button" class="alcohol-free" id="alcohol-free">💖 Alcohol-free</button>
+
+                <div class="field">
+                  <label for="known-recipe">Find a recipe by name</label>
+                  <!-- Options are drink titles from the recipes database. The list stays empty until that data is loaded. -->
+                  <select id="known-recipe" name="known-recipe"></select>
+                </div>
               </div>
 
-              <div class="surprise-block">
-                <!-- TODO: Open the selected recipe. Surprise me picks one at random once recipes are loaded. -->
-                <button type="button" class="surprise" id="surprise">🎲 Surprise me</button>
-                <p id="surprise-status" class="surprise-status" role="status"></p>
+              <div class="page-rest">
+                <div class="right-page-space" aria-hidden="true"></div>
+
+                <div class="surprise-block">
+                  <button type="button" class="surprise" id="surprise">🎲 Surprise me</button>
+                  <p id="surprise-status" class="surprise-status" role="status"></p>
+                </div>
               </div>
             </div>
           </form>

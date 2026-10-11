@@ -3,7 +3,7 @@
   "portions": 1,
   "season": "summer",
   "ingredients": [
-    { "name": "Amaro Montenegro", "quantity": 1, "unit": "fl oz", "is_spirit": true },
+    { "name": "Amaro Montenegro", "quantity": 1, "unit": "fl oz", "is_spirit": true, "family": "amaro" },
     { "name": "rum", "quantity": 1, "unit": "fl oz", "is_spirit": true, "family": "rum" },
     { "name": "blue curaçao", "quantity": 1, "unit": "fl oz", "is_spirit": true },
     {

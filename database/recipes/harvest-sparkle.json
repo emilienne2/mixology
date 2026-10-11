@@ -3,18 +3,18 @@
   "portions": 4,
   "season": "autumn",
   "ingredients": [
-    { "name": "honey", "quantity": 0.5, "unit": "cup" },
+    { "name": "honey", "quantity": 0.5, "unit": "cup", "grams_per_cup": 336 },
     { "name": "freshly squeezed orange juice", "quantity": 1, "unit": "cup" },
-    { "name": "ground ginger", "quantity": 0.25, "unit": "tsp" },
-    { "name": "cinnamon", "quantity": 0.25, "unit": "tsp" },
-    { "name": "ground cloves", "quantity": 0.125, "unit": "tsp" },
+    { "name": "ground ginger", "quantity": 0.25, "unit": "tsp", "grams_per_cup": 86 },
+    { "name": "cinnamon", "quantity": 0.25, "unit": "tsp", "grams_per_cup": 125 },
+    { "name": "ground cloves", "quantity": 0.125, "unit": "tsp", "grams_per_cup": 101 },
     {
       "choice": [
         { "name": "whiskey", "quantity": 4, "unit": "fl oz", "is_spirit": true, "family": "whiskey" },
         { "name": "bourbon", "quantity": 4, "unit": "fl oz", "is_spirit": true, "family": "whiskey" }
       ]
     },
-    { "name": "sparkling wine", "quantity": 4, "unit": "fl oz", "is_spirit": true },
+    { "name": "sparkling wine", "quantity": 4, "unit": "fl oz", "is_spirit": true, "family": "wine" },
     { "name": "rosemary sprig", "quantity": 2, "unit": "count", "note": "garnish" }
   ],
   "steps": [

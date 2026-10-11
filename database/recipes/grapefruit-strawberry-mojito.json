@@ -4,7 +4,7 @@
   "season": "summer",
   "ingredients": [
     { "name": "fresh mint leaf", "quantity": 10, "unit": "count", "note": "medium" },
-    { "name": "sugar", "quantity": 1, "unit": "tsp" },
+    { "name": "sugar", "quantity": 1, "unit": "tsp", "grams_per_cup": 200 },
     { "name": "strawberry", "quantity": 1, "unit": "count", "note": "medium, thinly sliced" },
     { "name": "grapefruit slice", "quantity": 1, "unit": "count", "note": "1.5 inch, cut in half" },
     { "name": "freshly squeezed grapefruit juice", "quantity": 4, "unit": "fl oz" },
@@ -15,7 +15,7 @@
       ]
     },
     { "name": "club soda", "quantity": 2, "unit": "fl oz" },
-    { "name": "ice", "note": "to fill the glass" }
+    { "name": "ice", "note": "to fill the glass", "grams_per_cup": 140 }
   ],
   "steps": [
     "Add the mint leaves, sugar, strawberry slices, and grapefruit slices (without rind) to a large cocktail glass. Muddle until sugar is dissolved.",

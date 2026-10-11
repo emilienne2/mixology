@@ -5,12 +5,12 @@
   "ingredients": [
     { "name": "coconut milk", "quantity": 13.5, "unit": "fl oz" },
     { "name": "water", "quantity": 1, "unit": "cup" },
-    { "name": "sugar", "quantity": 2, "unit": "tbsp" },
-    { "name": "cinnamon", "quantity": 0.5, "unit": "tsp" },
-    { "name": "ground guajillo chile", "quantity": 0.5, "unit": "tsp" },
-    { "name": "natural cocoa powder", "quantity": 2, "unit": "tbsp" },
+    { "name": "sugar", "quantity": 2, "unit": "tbsp", "grams_per_cup": 200 },
+    { "name": "cinnamon", "quantity": 0.5, "unit": "tsp", "grams_per_cup": 125 },
+    { "name": "ground guajillo chile", "quantity": 0.5, "unit": "tsp", "grams_per_cup": 128 },
+    { "name": "natural cocoa powder", "quantity": 2, "unit": "tbsp", "grams_per_cup": 86 },
     { "name": "vanilla extract", "quantity": 1, "unit": "tsp" },
-    { "name": "salt", "quantity": 0.25, "unit": "tsp" },
+    { "name": "salt", "quantity": 0.25, "unit": "tsp", "grams_per_cup": 292 },
     { "name": "cayenne pepper", "quantity": 1, "unit": "pinch" }
   ],
   "steps": [

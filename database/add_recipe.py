@@ -29,8 +29,7 @@ def recipe_path(title: str) -> str:
     """
     From a given recipe title, get the recipe path to be used in the URL,
     ie. for Spicy cocoa, it's spicy-cocoa.
-    recipePath() in frontend/public/search/search.js builds this same path
-    and returns it with /recipes/ in front.
+    This is the only place that path is decided. The pages link to the stored path.
     """
     decomposed = unicodedata.normalize("NFD", title)
     without_marks = "".join(
@@ -317,6 +316,12 @@ def validate_ingredient(
     elif family is not None:
         raise RecipeError(f"{name} can belong to the {family} family only when it is a spirit.")
 
+    grams_per_cup = item.get("grams_per_cup")
+    if grams_per_cup is not None and (
+        isinstance(grams_per_cup, bool) or not isinstance(grams_per_cup, (int, float)) or grams_per_cup <= 0
+    ):
+        raise RecipeError(f"{name} needs a cup weight above 0.")
+
     return {
         "name": name,
         "quantity": quantity,
@@ -324,6 +329,7 @@ def validate_ingredient(
         "note": note,
         "is_spirit": is_spirit,
         "family": family,
+        "grams_per_cup": grams_per_cup,
         "choice_group": choice_group,
         "optional": optional,
         "position": position,
@@ -381,17 +387,22 @@ def get_or_store_ingredient_id(connection: sqlite3.Connection, ingredient: Ingre
     Return the id of this ingredient in the ingredients table.
     Store the ingredient when it is not there yet.
     A stored ingredient keeps its spirit flag.
-    A family can be filled in when the stored ingredient has none.
-    A conflicting spirit flag or family raises RecipeError.
+    A family or cup weight can be filled in when the stored ingredient has none.
+    A conflicting spirit flag, family, or cup weight raises RecipeError.
     """
     row = connection.execute(
-        "SELECT id, name, is_spirit, family FROM ingredients WHERE name = ?",
+        "SELECT id, name, is_spirit, family, grams_per_cup FROM ingredients WHERE name = ?",
         (ingredient["name"],),
     ).fetchone()
     if row is None:
         cursor = connection.execute(
-            "INSERT INTO ingredients (name, is_spirit, family) VALUES (?, ?, ?)",
-            (ingredient["name"], int(ingredient["is_spirit"] or False), ingredient["family"]),
+            "INSERT INTO ingredients (name, is_spirit, family, grams_per_cup) VALUES (?, ?, ?, ?)",
+            (
+                ingredient["name"],
+                int(ingredient["is_spirit"] or False),
+                ingredient["family"],
+                ingredient["grams_per_cup"],
+            ),
         )
         if cursor.lastrowid is None:
             raise RecipeError(f"Could not store {ingredient['name']}.")
@@ -405,6 +416,13 @@ def get_or_store_ingredient_id(connection: sqlite3.Connection, ingredient: Ingre
         connection.execute(
             "UPDATE ingredients SET family = ? WHERE id = ?",
             (ingredient["family"], row["id"]),
+        )
+    if ingredient["grams_per_cup"] is not None and row["grams_per_cup"] not in (None, ingredient["grams_per_cup"]):
+        raise RecipeError(f"{row['name']} already weighs {row['grams_per_cup']} grams per cup.")
+    if ingredient["grams_per_cup"] is not None and row["grams_per_cup"] is None:
+        connection.execute(
+            "UPDATE ingredients SET grams_per_cup = ? WHERE id = ?",
+            (ingredient["grams_per_cup"], row["id"]),
         )
     return row["id"]
 

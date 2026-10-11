@@ -5,7 +5,7 @@
   "ingredients": [
     { "name": "fiery ginger syrup", "quantity": 0.5, "unit": "fl oz" },
     { "name": "bourbon", "quantity": 2, "unit": "fl oz", "is_spirit": true, "family": "whiskey" },
-    { "name": "amaro", "quantity": 0.25, "unit": "fl oz", "is_spirit": true },
+    { "name": "amaro", "quantity": 0.25, "unit": "fl oz", "is_spirit": true, "family": "amaro" },
     { "name": "lemon juice", "quantity": 0.5, "unit": "fl oz" },
     { "name": "heavy cream", "quantity": 1, "unit": "fl oz" },
     { "name": "orange bitters", "quantity": 2, "unit": "dash" },

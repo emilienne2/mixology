@@ -168,6 +168,44 @@ body {
   margin-top: 1.35rem;
 }
 
+/* The ingredient line and the recipe-name line share a row across the open book. */
+#find-drink {
+  grid-template-rows: auto auto minmax(0, 1fr);
+}
+
+#find-drink > .book-spine,
+#find-drink > .book-page {
+  grid-row: 1 / -1;
+}
+
+#find-drink > .book-page {
+  display: grid;
+  grid-template-rows: subgrid;
+}
+
+#find-drink .aligned-fields {
+  display: grid;
+  grid-row: 1 / 3;
+  grid-template-rows: subgrid;
+}
+
+#find-drink .aligned-fields > .field:last-child,
+#find-drink .page-rest > .field {
+  margin-top: 1.35rem;
+}
+
+#find-drink .page-rest {
+  display: flex;
+  flex-direction: column;
+  grid-row: 3;
+  min-height: 0;
+}
+
+#find-drink .alcohol-free {
+  justify-self: center;
+  align-self: start;
+}
+
 .search-submit {
   display: block;
   width: fit-content;
@@ -196,11 +234,17 @@ body {
   list-style: none;
 }
 
+.recipe-list li + li {
+  margin-top: 1.35rem;
+}
+
 .recipe-list a {
   display: block;
   font-family: var(--font-recipe-title);
   font-size: 1.7rem;
-  line-height: 1.7;
+  /* La Belle Aurore sits high in its box. A short line-height pulls a wrapped
+     second line up under its title. The margin above keeps the next recipe farther away. */
+  line-height: 0.8;
   color: var(--color-ink);
   text-decoration: none;
 }
@@ -274,21 +318,52 @@ select {
 .combo-empty,
 .combo-panel label {
   display: flex;
-  align-items: flex-start;
-  gap: 0.45rem;
-  padding: 0.45rem 0.5rem;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.4rem 0.5rem;
+  font-family: var(--font-sans);
   font-size: 0.95rem;
+  line-height: 1.3;
 }
 
 .combo-panel input {
   width: auto;
   flex: none;
-  margin: 0.15rem 0 0;
+  margin: 0;
   padding: 0;
 }
 
 .combo-empty {
   color: rgb(74 24 104 / 0.72);
+}
+
+.right-page-space {
+  flex: 0 0 3rem;
+}
+
+.book-page-right:has(.alcohol-free) {
+  justify-content: flex-start;
+}
+
+.book-page-right:has(.alcohol-free) .surprise-block {
+  flex: none;
+  justify-content: flex-start;
+}
+
+.alcohol-free {
+  align-self: center;
+  max-width: 100%;
+  margin: 1.25rem 0 0;
+  padding: var(--script-button-padding);
+  font-family: var(--font-recipe-title);
+  font-size: 1.7rem;
+  line-height: 1.15;
+  text-align: center;
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: 999px;
+  cursor: pointer;
 }
 
 .surprise-block {
@@ -544,6 +619,30 @@ select:focus-visible,
     gap: 1.35rem;
     border-radius: 0 0 0.35rem 0.35rem;
     padding-top: 1.35rem;
+  }
+
+  #find-drink {
+    grid-template-rows: none;
+  }
+
+  #find-drink > .book-page,
+  #find-drink .aligned-fields {
+    display: flex;
+    flex-direction: column;
+    grid-row: auto;
+    grid-template-rows: none;
+  }
+
+  #find-drink .page-rest {
+    display: contents;
+  }
+
+  #find-drink .alcohol-free {
+    align-self: center;
+  }
+
+  .right-page-space {
+    display: none;
   }
 
   .surprise-block {

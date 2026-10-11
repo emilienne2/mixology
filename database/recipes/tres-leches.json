@@ -9,7 +9,7 @@
     { "name": "evaporated milk", "quantity": 1, "unit": "fl oz" },
     {
       "choice": [
-        { "name": "cinnamon" },
+        { "name": "cinnamon", "grams_per_cup": 125 },
         { "name": "pumpkin spice mix" }
       ]
     }

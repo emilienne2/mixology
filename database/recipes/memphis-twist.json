@@ -3,9 +3,9 @@
   "portions": 7,
   "season": "spring",
   "ingredients": [
-    { "name": "blueberries", "quantity": 1, "unit": "pint" },
-    { "name": "sugar", "quantity": 1, "unit": "cup" },
-    { "name": "lavender", "quantity": 4, "unit": "tsp", "note": "up to 5 tsp" },
+    { "name": "blueberries", "quantity": 1, "unit": "pint", "grams_per_cup": 148 },
+    { "name": "sugar", "quantity": 1, "unit": "cup", "grams_per_cup": 200 },
+    { "name": "lavender", "quantity": 4, "unit": "tsp", "note": "up to 5 tsp", "grams_per_cup": 48 },
     { "name": "apple cider vinegar", "quantity": 1, "unit": "cup" },
     { "name": "lime sparkling water", "quantity": 23.8, "unit": "fl oz" }
   ],

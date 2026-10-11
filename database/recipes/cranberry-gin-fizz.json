@@ -7,7 +7,7 @@
     { "name": "orange slices", "note": "to muddle" },
     { "name": "vanilla-orange-cranberry simple syrup", "quantity": 5, "unit": "fl oz" },
     { "name": "ginger beer", "quantity": 5, "unit": "fl oz" },
-    { "name": "dry gin", "quantity": 7.5, "unit": "fl oz", "is_spirit": true },
+    { "name": "gin", "quantity": 7.5, "unit": "fl oz", "is_spirit": true },
     { "name": "candied cranberries", "note": "with the ginger beer" },
     { "name": "mint sprig", "note": "garnish", "optional": true }
   ],

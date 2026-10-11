@@ -1,0 +1,16 @@
+[project]
+name = "mixology-api"
+version = "0.1.0"
+description = "Read-only API for the Chez Émilienne recipe book."
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.115",
+    "uvicorn>=0.32",
+]
+
+[tool.poetry]
+package-mode = false
+
+[build-system]
+requires = ["poetry-core>=2.0.0"]
+build-backend = "poetry.core.masonry.api"

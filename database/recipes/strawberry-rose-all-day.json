@@ -11,7 +11,7 @@
         { "name": "grenadine syrup", "quantity": 0.75, "unit": "fl oz" }
       ]
     },
-    { "name": "sparkling rosé wine", "quantity": 4, "unit": "fl oz", "note": "to top", "is_spirit": true }
+    { "name": "sparkling rosé wine", "quantity": 4, "unit": "fl oz", "note": "to top", "is_spirit": true, "family": "wine" }
   ],
   "steps": [
     "Mix all ingredients except rosé.",

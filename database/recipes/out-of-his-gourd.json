@@ -7,7 +7,7 @@
     { "name": "lemon juice", "quantity": 0.75, "unit": "fl oz" },
     { "name": "Scotch whiskey", "quantity": 1.5, "unit": "fl oz", "is_spirit": true, "family": "whiskey" },
     { "name": "sherry", "quantity": 0.5, "unit": "fl oz", "is_spirit": true },
-    { "name": "pumpkin purée", "quantity": 2, "unit": "tsp", "note": "1-2 heaping barspoons" },
+    { "name": "pumpkin purée", "quantity": 2, "unit": "tsp", "note": "1-2 heaping barspoons", "grams_per_cup": 245 },
     { "name": "lemon peel", "quantity": 1, "unit": "count", "note": "garnish" }
   ],
   "steps": [

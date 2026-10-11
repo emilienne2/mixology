@@ -9,14 +9,14 @@
     { "name": "egg white", "quantity": 1, "unit": "count", "note": "large" },
     {
       "choice": [
-        { "name": "blueberry jam", "quantity": 1, "unit": "tsp" },
-        { "name": "quatre fruits jam", "quantity": 1, "unit": "tsp" }
+        { "name": "blueberry jam", "quantity": 1, "unit": "tsp", "grams_per_cup": 320 },
+        { "name": "quatre fruits jam", "quantity": 1, "unit": "tsp", "grams_per_cup": 320 }
       ]
     },
     {
       "choice": [
-        { "name": "zinfandel", "quantity": 1, "unit": "fl oz", "is_spirit": true },
-        { "name": "primitivo", "quantity": 1, "unit": "fl oz", "is_spirit": true }
+        { "name": "zinfandel", "quantity": 1, "unit": "fl oz", "is_spirit": true, "family": "wine" },
+        { "name": "primitivo", "quantity": 1, "unit": "fl oz", "is_spirit": true, "family": "wine" }
       ]
     }
   ],

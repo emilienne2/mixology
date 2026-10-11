@@ -3,12 +3,12 @@
   "portions": 8,
   "season": "summer",
   "ingredients": [
-    { "name": "vanilla ice cream", "quantity": 1, "unit": "pint" },
+    { "name": "vanilla ice cream", "quantity": 1, "unit": "pint", "grams_per_cup": 132 },
     { "name": "crushed pineapple", "quantity": 5, "unit": "oz", "note": "canned or frozen" },
     {
       "choice": [
         { "name": "coconut cream", "quantity": 0.25, "unit": "cup" },
-        { "name": "coconut ice cream", "quantity": 0.25, "unit": "cup" }
+        { "name": "coconut ice cream", "quantity": 0.25, "unit": "cup", "grams_per_cup": 132 }
       ]
     },
     { "name": "pineapple juice", "quantity": 10, "unit": "fl oz" },

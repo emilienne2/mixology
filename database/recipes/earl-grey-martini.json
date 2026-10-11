@@ -1,11 +1,11 @@
 {
-  "title": "Earl Grey Martini",
+  "title": "Earl Grey martini",
   "portions": 4,
   "season": "spring",
   "ingredients": [
-    { "name": "Earl Grey tea leaves", "quantity": 2, "unit": "tsp" },
+    { "name": "Earl Grey tea leaves", "quantity": 2, "unit": "tsp", "grams_per_cup": 96 },
     { "name": "gin", "quantity": 6, "unit": "fl oz", "is_spirit": true },
-    { "name": "White sugar", "note": "for glass rim" },
+    { "name": "White sugar", "note": "for glass rim", "grams_per_cup": 200 },
     { "name": "lemon", "quantity": 2, "unit": "wedge" },
     { "name": "freshly squeezed lemon juice", "quantity": 3, "unit": "fl oz" },
     { "name": "simple syrup", "quantity": 0.5, "unit": "cup" }

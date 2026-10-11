@@ -3,8 +3,8 @@
   "portions": 4,
   "season": "autumn",
   "ingredients": [
-    { "name": "ruby port", "quantity": 12.7, "unit": "fl oz", "is_spirit": true },
-    { "name": "fresh cranberries", "quantity": 1, "unit": "cup" },
+    { "name": "ruby port", "quantity": 12.7, "unit": "fl oz", "is_spirit": true, "family": "wine" },
+    { "name": "fresh cranberries", "quantity": 1, "unit": "cup", "grams_per_cup": 100 },
     { "name": "cranberry juice", "quantity": 0.75, "unit": "cup", "note": "real" },
     { "name": "freshly squeezed orange juice", "quantity": 0.25, "unit": "cup", "note": "1 medium orange" },
     {
@@ -17,7 +17,7 @@
     { "name": "simple syrup", "quantity": 0.25, "unit": "cup" },
     { "name": "club soda", "quantity": 1.5, "unit": "cup" },
     { "name": "orange", "quantity": 1, "unit": "count", "note": "medium" },
-    { "name": "fresh cranberries", "note": "garnish" }
+    { "name": "fresh cranberries", "note": "garnish", "grams_per_cup": 100 }
   ],
   "steps": [
     "Squeeze one medium orange to make the freshly squeezed orange juice. Slice the other orange for garnish.",

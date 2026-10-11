@@ -7,7 +7,7 @@
     { "name": "strawberry simple syrup", "quantity": 0.25, "unit": "cup" },
     { "name": "water", "quantity": 0.75, "unit": "cup", "note": "up to 1 cup" },
     { "name": "ice cubes", "note": "for serving" },
-    { "name": "freshly sliced strawberries", "quantity": 0.25, "unit": "cup" },
+    { "name": "freshly sliced strawberries", "quantity": 0.25, "unit": "cup", "grams_per_cup": 166 },
     { "name": "mint leaves", "note": "garnish", "optional": true }
   ],
   "steps": [

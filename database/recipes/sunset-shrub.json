@@ -3,9 +3,9 @@
   "portions": 4,
   "season": "summer",
   "ingredients": [
-    { "name": "blackberries", "quantity": 1, "unit": "cup" },
-    { "name": "raspberries", "quantity": 1, "unit": "cup" },
-    { "name": "raw cane sugar", "quantity": 0.75, "unit": "cup" },
+    { "name": "blackberries", "quantity": 1, "unit": "cup", "grams_per_cup": 144 },
+    { "name": "raspberries", "quantity": 1, "unit": "cup", "grams_per_cup": 123 },
+    { "name": "raw cane sugar", "quantity": 0.75, "unit": "cup", "grams_per_cup": 220 },
     { "name": "red wine vinegar", "quantity": 0.25, "unit": "cup" },
     {
       "choice": [

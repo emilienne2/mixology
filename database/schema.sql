@@ -2,16 +2,18 @@
 -- SQLite checks foreign keys only when this is on for the connection.
 PRAGMA foreign_keys = ON;
 
--- Seasons this book stores.
+-- Seasons this book stores. name is the stored value. label and emoji are what the page shows.
 CREATE TABLE seasons (
-    name TEXT PRIMARY KEY CHECK (length(name) > 0)
+    name TEXT PRIMARY KEY CHECK (length(name) > 0),
+    label TEXT NOT NULL CHECK (length(label) > 0),
+    emoji TEXT NOT NULL CHECK (length(emoji) > 0)
 );
 
-INSERT INTO seasons (name) VALUES
-    ('spring'),
-    ('summer'),
-    ('autumn'),
-    ('winter');
+INSERT INTO seasons (name, label, emoji) VALUES
+    ('spring', 'Spring', '🌸'),
+    ('summer', 'Summer', '😎'),
+    ('autumn', 'Autumn', '🎃'),
+    ('winter', 'Winter', '☃️');
 
 -- One drink. path is the URL piece: /recipes/ plus path.
 -- Amounts live on recipe_ingredients in US units. (Conversion to metric units available in the frontend.)
@@ -27,6 +29,8 @@ CREATE TABLE recipes (
 -- Search groups for spirits. A family term matches every spirit in that family.
 -- rum and rhum are the rum family, so either word matches white rum and every other rum.
 -- whiskey and whisky are the whiskey family, so either word matches Scotch, Irish, bourbon, and every other whiskey.
+-- amaro matches Amaro Montenegro and the spirit named amaro.
+-- wine matches a spirit whose name contains wine, and also zinfandel, primitivo, tawny port, ruby port, and late-bottled vintage port.
 -- A specific name, such as bourbon, matches that spirit only.
 CREATE TABLE spirit_families (
     name TEXT PRIMARY KEY CHECK (length(name) > 0)
@@ -37,21 +41,26 @@ CREATE TABLE spirit_aliases (
     family TEXT NOT NULL REFERENCES spirit_families (name)
 );
 
-INSERT INTO spirit_families (name) VALUES ('rum'), ('whiskey');
+INSERT INTO spirit_families (name) VALUES ('rum'), ('whiskey'), ('amaro'), ('wine');
 INSERT INTO spirit_aliases (alias, family) VALUES
     ('rum', 'rum'),
     ('rhum', 'rum'),
     ('whiskey', 'whiskey'),
-    ('whisky', 'whiskey');
+    ('whisky', 'whiskey'),
+    ('amaro', 'amaro'),
+    ('wine', 'wine');
 
--- Shared pantry. The spirit menu is composed of the names where is_spirit is 1.
+-- Shared pantry. The spirit menu lists these names, plus a family name such as wine when no spirit uses that name.
 -- A name is unique regardless of case, so gin and Gin are one ingredient.
--- family is set on a rum or whiskey spirit. Other spirits match their own name only.
+-- family is set on a rum, whiskey, amaro, or wine spirit. Other spirits match their own name only.
+-- grams_per_cup is the weight of one cup. A teaspoon, tablespoon, cup, or pint of that ingredient is shown in grams.
+-- Empty means those volumes are shown in milliliters. fl oz stays milliliters, and oz stays grams.
 CREATE TABLE ingredients (
     id INTEGER PRIMARY KEY,
     name TEXT COLLATE NOCASE NOT NULL UNIQUE CHECK (length(name) > 0),
     is_spirit INTEGER NOT NULL DEFAULT 0 CHECK (is_spirit IN (0, 1)),
     family TEXT REFERENCES spirit_families (name),
+    grams_per_cup REAL CHECK (grams_per_cup IS NULL OR grams_per_cup > 0),
     CHECK (family IS NULL OR is_spirit = 1)
 );
 

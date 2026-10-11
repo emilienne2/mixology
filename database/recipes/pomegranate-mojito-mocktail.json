@@ -4,7 +4,7 @@
   "season": "autumn",
   "ingredients": [
     { "name": "water", "quantity": 1, "unit": "cup" },
-    { "name": "sugar", "quantity": 1, "unit": "cup" },
+    { "name": "sugar", "quantity": 1, "unit": "cup", "grams_per_cup": 200 },
     { "name": "serrano pepper", "quantity": 2, "unit": "count", "optional": true },
     { "name": "fresh mint leaf", "quantity": 5, "unit": "count", "note": "up to 6" },
     {

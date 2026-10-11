@@ -13,7 +13,7 @@
     },
     { "name": "lemon juice", "quantity": 0.5, "unit": "fl oz" },
     { "name": "peach bitters", "quantity": 2, "unit": "dash" },
-    { "name": "sparkling wine", "quantity": 2.5, "unit": "fl oz", "is_spirit": true }
+    { "name": "sparkling wine", "quantity": 2.5, "unit": "fl oz", "is_spirit": true, "family": "wine" }
   ],
   "steps": [
     "Add all ingredients except the sparkling wine to a shaker with ice. Shake for 10 seconds.",

@@ -3,8 +3,8 @@
   "portions": 4,
   "season": "summer",
   "ingredients": [
-    { "name": "sugar", "quantity": 0.5, "unit": "cup" },
-    { "name": "sliced strawberries", "quantity": 1, "unit": "cup" },
+    { "name": "sugar", "quantity": 0.5, "unit": "cup", "grams_per_cup": 200 },
+    { "name": "sliced strawberries", "quantity": 1, "unit": "cup", "grams_per_cup": 166 },
     { "name": "rosemary sprig", "quantity": 2, "unit": "count" },
     { "name": "balsamic vinegar", "quantity": 0.5, "unit": "tbsp" },
     { "name": "unpasteurized raw apple cider vinegar", "quantity": 7.5, "unit": "tbsp" },

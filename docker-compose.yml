@@ -9,5 +9,16 @@ services:
     volumes:
       # Bind-mount onto nginx's default document root so HTML/JS edits appear without a rebuild
       - ./frontend/public:/usr/share/nginx/html
-      # Serves /recipes/<slug> from the single recipe page
+      # Serves /recipes/<path> from the single recipe page
       - ./frontend/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - backend
+
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_PATH: /data/mixology.db
+    volumes:
+      - ./database/mixology.db:/data/mixology.db:ro

@@ -1,52 +1,78 @@
 const params = new URLSearchParams(location.search);
 const criteria = {
-  spirits: params.getAll("spirit"),
-  ingredients: params.get("ingredients") ?? "",
-  season: params.get("season") ?? "",
+  spirits: params.getAll("spirit").filter((name) => name.trim() !== ""),
+  ingredients: (params.get("ingredients") ?? "").trim(),
+  season: (params.get("season") ?? "").trim(),
+  alcoholFree: params.get("alcohol-free") === "1",
 };
-
-// TODO: Replace this stand-in list with titles from the recipes database that match criteria.
-// A rum or rhum term matches every rum. A whiskey or whisky term matches every whiskey.
-function titlesForCriteria(criteria) {
-  return [
-    "Earl Grey Martini",
-    "The Bitter End",
-    "Orange Creamsicle",
-    "Spicy Cocoa",
-    "Knob Kriek",
-    "Brown Derby",
-    "Grapefruit Collins",
-  ];
-}
-
-const recipeTitles = titlesForCriteria(criteria);
 
 const resultsLeft = document.querySelector("#results-left");
 const resultsRight = document.querySelector("#results-right");
+const searchStatus = document.querySelector("#search-status");
 
-const sortedTitles = recipeTitles.toSorted((a, b) => a.localeCompare(b));
-const midpoint = Math.ceil(sortedTitles.length / 2);
+if (
+  criteria.spirits.length === 0 &&
+  criteria.ingredients === "" &&
+  criteria.season === "" &&
+  !criteria.alcoholFree
+) {
+  showStatus("Choose a spirit, an ingredient, or a season.");
+} else {
+  loadMatchingTitles();
+}
 
-fillRecipeList(resultsLeft, sortedTitles.slice(0, midpoint));
-fillRecipeList(resultsRight, sortedTitles.slice(midpoint));
+function loadMatchingTitles() {
+  fetch(`/api/search${location.search}`)
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      }
+      return response
+        .json()
+        .then((body) => {
+          showStatus(searchFailure(body));
+          return null;
+        })
+        .catch(() => {
+          showStatus("Unable to complete search.");
+          return null;
+        });
+    })
+    .then((recipes) => {
+      if (recipes === null) {
+        return;
+      }
+      if (recipes.length === 0) {
+        showStatus("No recipes match.");
+        return;
+      }
+      const midpoint = Math.ceil(recipes.length / 2);
+      fillRecipeList(resultsLeft, recipes.slice(0, midpoint));
+      fillRecipeList(resultsRight, recipes.slice(midpoint));
+    })
+    .catch(() => showStatus("Unable to complete search."));
+}
 
-function fillRecipeList(list, titles) {
-  for (const title of titles) {
+function searchFailure(body) {
+  const message = body && typeof body.detail === "string" ? body.detail.trim() : "";
+  if (message === "") {
+    return "Unable to complete search.";
+  }
+  return `Unable to complete search: ${message}`;
+}
+
+function showStatus(message) {
+  searchStatus.hidden = false;
+  searchStatus.textContent = message;
+}
+
+function fillRecipeList(list, recipes) {
+  for (const recipe of recipes) {
     const item = document.createElement("li");
     const link = document.createElement("a");
-    link.href = recipePath(title);
-    link.textContent = title;
+    link.href = `/recipes/${recipe.path}`;
+    link.textContent = recipe.title;
     item.append(link);
     list.append(item);
   }
-}
-
-function recipePath(title) {
-  const slug = title
-    .normalize("NFD")
-    .replace(/\p{M}/gu, "")
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
-  return `/recipes/${slug}`;
 }

@@ -8,8 +8,8 @@
     { "name": "Apérol", "quantity": 0.5, "unit": "fl oz", "is_spirit": true },
     { "name": "fresh lemon juice", "quantity": 0.5, "unit": "fl oz" },
     { "name": "orange bitters", "quantity": 2, "unit": "dash" },
-    { "name": "sparkling wine", "note": "to top", "is_spirit": true },
-    { "name": "ice", "note": "for shaking and serving" },
+    { "name": "sparkling wine", "note": "to top", "is_spirit": true, "family": "wine" },
+    { "name": "ice", "note": "for shaking and serving", "grams_per_cup": 140 },
     { "name": "lemon twist", "quantity": 1, "unit": "count", "note": "garnish" }
   ],
   "steps": [

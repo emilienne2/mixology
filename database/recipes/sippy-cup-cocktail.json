@@ -4,7 +4,7 @@
   "season": "autumn",
   "ingredients": [
     { "name": "fiery ginger syrup", "quantity": 0.75, "unit": "fl oz" },
-    { "name": "amaro", "quantity": 1.5, "unit": "fl oz", "is_spirit": true },
+    { "name": "amaro", "quantity": 1.5, "unit": "fl oz", "is_spirit": true, "family": "amaro" },
     { "name": "sweet vermouth", "quantity": 1, "unit": "fl oz", "is_spirit": true },
     { "name": "lime juice", "quantity": 1, "unit": "fl oz" },
     {

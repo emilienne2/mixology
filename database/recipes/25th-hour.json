@@ -6,11 +6,11 @@
     { "name": "Scotch whiskey", "quantity": 1.25, "unit": "fl oz", "is_spirit": true, "family": "whiskey" },
     {
       "choice": [
-        { "name": "tawny port", "quantity": 0.75, "unit": "fl oz", "is_spirit": true },
-        { "name": "late-bottled vintage port", "quantity": 0.75, "unit": "fl oz", "is_spirit": true }
+        { "name": "tawny port", "quantity": 0.75, "unit": "fl oz", "is_spirit": true, "family": "wine" },
+        { "name": "late-bottled vintage port", "quantity": 0.75, "unit": "fl oz", "is_spirit": true, "family": "wine" }
       ]
     },
-    { "name": "amaro", "quantity": 0.5, "unit": "fl oz", "is_spirit": true },
+    { "name": "amaro", "quantity": 0.5, "unit": "fl oz", "is_spirit": true, "family": "amaro" },
     { "name": "maraschino liqueur", "quantity": 0.1667, "unit": "fl oz", "is_spirit": true },
     { "name": "Angostura bitters", "quantity": 2, "unit": "dash", "note": "heavy" },
     { "name": "lemon juice", "quantity": 1, "unit": "drop" },
