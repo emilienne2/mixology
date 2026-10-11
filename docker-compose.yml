@@ -20,5 +20,7 @@ services:
       - "8000:8000"
     environment:
       DATABASE_PATH: /data/mixology.db
+      # Google AI Studio key for the free Gemini tier. Compose reads a gitignored .env file.
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-}
     volumes:
       - ./database/mixology.db:/data/mixology.db:ro

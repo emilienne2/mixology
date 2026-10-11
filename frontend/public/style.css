@@ -34,6 +34,8 @@
   --color-ink: #4a1868;
   --color-paper: #fff6e4;
   --color-paper-edge: #e4c98a;
+  --color-bookmark: #86945a;
+  --color-burgundy: #800020;
   --color-shadow: 0 20px 40px rgb(20 0 40 / 0.35);
   --font-sans: system-ui, sans-serif;
   --font-app-title: "Homemade Apple", cursive;
@@ -119,16 +121,32 @@ body {
   box-shadow: var(--color-shadow);
 }
 
+.book-spread::before,
 .book-spread::after {
   content: "";
   position: absolute;
   top: 0;
-  right: 2.3rem;
-  z-index: 1;
-  width: 1.15rem;
-  height: 2.35rem;
-  background: var(--color-border);
   clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 78%, 0 100%);
+}
+
+.book-spread::before {
+  z-index: 1;
+  right: calc(2.15rem - 3px);
+  width: calc(2.8125rem + 6px);
+  height: calc(4.3125rem + 3px);
+  background: var(--color-surface);
+}
+
+.book-spread::after {
+  z-index: 2;
+  right: 2.15rem;
+  box-sizing: border-box;
+  width: 2.8125rem;
+  height: 4.3125rem;
+  border: 3px solid var(--color-border);
+  border-top: 0;
+  background: var(--color-bookmark) url("/favicon.png") center / contain no-repeat;
+  background-clip: padding-box;
 }
 
 .book-page {
@@ -554,9 +572,16 @@ select {
 }
 
 .chat-role {
-  font-size: 0.75rem;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  font-family: var(--font-recipe-title);
+  font-size: 1.45rem;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.chat-notice {
+  color: var(--color-burgundy);
+  font-size: 0.85rem;
+  line-height: 1.4;
 }
 
 .recipe-chat-form {

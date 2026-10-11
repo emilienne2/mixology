@@ -5,6 +5,7 @@ description = "Read-only API for the Chez Émilienne recipe book."
 requires-python = ">=3.11"
 dependencies = [
     "fastapi>=0.115",
+    "httpx>=0.28",
     "uvicorn>=0.32",
 ]
 

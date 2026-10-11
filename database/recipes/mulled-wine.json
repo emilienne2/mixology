@@ -1,0 +1,30 @@
+{
+  "title": "Mulled wine",
+  "portions": 4,
+  "season": "winter",
+  "ingredients": [
+    {
+      "choice": [
+        { "name": "red wine", "quantity": 25.4, "unit": "fl oz", "is_spirit": true, "family": "wine" },
+        { "name": "non-alcoholic red wine", "quantity": 25.4, "unit": "fl oz" }
+      ]
+    },
+    { "name": "water", "quantity": 2, "unit": "cup" },
+    { "name": "clove", "quantity": 8, "unit": "count" },
+    { "name": "blackberry", "quantity": 6, "unit": "count" },
+    { "name": "cinnamon stick", "quantity": 1, "unit": "count" },
+    { "name": "star anise", "quantity": 3, "unit": "count" },
+    { "name": "sliced orange", "quantity": 1, "unit": "count" },
+    {
+      "name": "brown sugar",
+      "quantity": 0.125,
+      "unit": "cup",
+      "note": "up to 1/4 cup, to taste",
+      "grams_per_cup": 220
+    }
+  ],
+  "steps": [
+    "Mix all the ingredients in a saucepan and place on medium-high heat just until the wine begins to boil.",
+    "Reduce to low heat and simmer for 20-30 minutes."
+  ]
+}

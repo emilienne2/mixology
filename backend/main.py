@@ -1,10 +1,12 @@
 """Read-only API for the Chez Émilienne recipe book."""
 
+import json
 import os
 import sqlite3
 from pathlib import Path
 from typing import TypedDict
 
+import httpx
 from fastapi import FastAPI, HTTPException, Query
 
 app = FastAPI()
@@ -39,6 +41,42 @@ class RecipePage(TypedDict):
     photo: str | None
     ingredients: list[IngredientLine]
     steps: list[str]
+
+
+class ChatTurn(TypedDict):
+    role: str
+    text: str
+
+
+class ChatRequest(TypedDict):
+    portions: int
+    measure: str
+    question: str
+    messages: list[ChatTurn]
+
+
+class ChatReply(TypedDict):
+    reply: str
+    exchangesIncluded: int
+    earlierExchangesOmitted: bool
+
+
+# Gemini 3.5 Flash-Lite on Google's free tier answers Get Creative.
+# Google may use those requests to improve its models.
+GEMINI_MODEL = "gemini-3.5-flash-lite"
+GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/interactions"
+# One new question. A saved reply is not limited; only the recent exchanges are sent.
+QUESTION_CHARACTER_LIMIT = 500
+# Completed exchanges included with a new question. Older ones stay on the page.
+EXCHANGES_INCLUDED = 6
+# How long the API waits for Gemini, in seconds.
+ASSISTANT_TIMEOUT_SECONDS = 30
+ASSISTANT_INSTRUCTION = (
+    "You suggest a change to one cocktail from Chez Émilienne. "
+    "The saved recipe stays as it is. Describe what the reader can do instead. "
+    "Answer for the portion count and measurement system in the question. "
+    "Keep the reply to a short paragraph."
+)
 
 
 def open_database() -> sqlite3.Connection:
@@ -126,6 +164,11 @@ def recipe(path: str) -> RecipePage:
     Ingredient lines use choiceGroup. Steps are the instruction strings, in page order.
     A missing path is a 404.
     """
+    return load_recipe_page(path)
+
+
+def load_recipe_page(path: str) -> RecipePage:
+    """The recipe stored at this path. A missing path is a 404."""
     rows = read_rows(
         "SELECT id, title, portions, season, photo FROM recipes WHERE path = ?",
         (path,),
@@ -155,6 +198,212 @@ def recipe(path: str) -> RecipePage:
         "ingredients": [ingredient_line(row) for row in ingredients],
         "steps": [row["instruction"] for row in steps],
     }
+
+
+@app.post("/api/recipes/{path}/chat")
+def discuss_recipe(path: str, request: ChatRequest) -> ChatReply:
+    """
+    Ask Gemini how to change the recipe stored at this path.
+    The recipe is read from the database. The reply is not saved.
+    A missing path is a 404.
+    """
+    page = load_recipe_page(path)
+    question = checked_chat(request)
+    included, omitted = included_exchanges(question["messages"])
+    question["messages"] = included
+    prompt = assistant_prompt(page, question)
+    return {
+        "reply": ask_gemini(prompt),
+        "exchangesIncluded": EXCHANGES_INCLUDED,
+        "earlierExchangesOmitted": omitted,
+    }
+
+
+def checked_chat(request: ChatRequest) -> ChatRequest:
+    """The question and earlier turns, with empty text removed. A bad field is a 400."""
+    portions = request["portions"]
+    if isinstance(portions, bool) or not isinstance(portions, int) or portions < 1:
+        raise HTTPException(status_code=400, detail="A recipe needs a portion count.")
+    measure = request["measure"]
+    if measure not in ("us", "metric"):
+        raise HTTPException(status_code=400, detail="Choose US or metric measurements.")
+    question = request["question"].strip()
+    if question == "":
+        raise HTTPException(status_code=400, detail="Ask a question about this recipe.")
+    if len(question) > QUESTION_CHARACTER_LIMIT:
+        raise HTTPException(status_code=400, detail="Ask a shorter question.")
+    messages: list[ChatTurn] = []
+    for turn in request["messages"]:
+        role = turn["role"]
+        text = turn["text"].strip()
+        if role not in ("user", "assistant") or text == "":
+            raise HTTPException(status_code=400, detail="The conversation could not be read.")
+        messages.append({"role": role, "text": text})
+    return {
+        "portions": portions,
+        "measure": measure,
+        "question": question,
+        "messages": messages,
+    }
+
+
+def included_exchanges(messages: list[ChatTurn]) -> tuple[list[ChatTurn], bool]:
+    """The most recent exchanges sent with a question. Older ones are left out."""
+    kept = EXCHANGES_INCLUDED * 2
+    if len(messages) <= kept:
+        return messages, False
+    recent = messages[-kept:]
+    if recent[0]["role"] == "assistant":
+        recent = recent[1:]
+    return recent, True
+
+
+def assistant_prompt(page: RecipePage, request: ChatRequest) -> str:
+    """The recipe, the reader's portion count and measurements, and the conversation."""
+    measure = "metric" if request["measure"] == "metric" else "US"
+    lines = [
+        f"The saved recipe serves {page['portions']}.",
+        f"The reader is making {request['portions']}.",
+        f"The reader is using {measure} measurements.",
+        "Amounts below are the saved recipe, in US units, before scaling.",
+        "",
+        page["title"],
+        f"Season: {page['season']}",
+        "",
+        "Ingredients:",
+    ]
+    lines.extend(f"- {line}" for line in ingredient_texts(page["ingredients"]))
+    lines.append("")
+    lines.append("Steps:")
+    lines.extend(f"{index}. {step}" for index, step in enumerate(page["steps"], start=1))
+    if request["messages"]:
+        lines.append("")
+        lines.append("Earlier in this conversation:")
+        for turn in request["messages"]:
+            speaker = "Reader" if turn["role"] == "user" else "Assistant"
+            lines.append(f"{speaker}: {turn['text']}")
+    lines.append("")
+    lines.append(f"Question: {request['question']}")
+    return "\n".join(lines)
+
+
+def ingredient_texts(ingredients: list[IngredientLine]) -> list[str]:
+    """One line per ingredient. A choice slot is joined with 'or'."""
+    groups: list[list[IngredientLine]] = []
+    for line in ingredients:
+        same_choice = (
+            line["choiceGroup"] is not None
+            and groups
+            and groups[-1][0]["choiceGroup"] == line["choiceGroup"]
+        )
+        if same_choice:
+            groups[-1].append(line)
+        else:
+            groups.append([line])
+    texts: list[str] = []
+    for group in groups:
+        text = " or ".join(one_ingredient_text(line) for line in group)
+        if all(line["optional"] for line in group):
+            text = f"{text}, optional"
+        texts.append(text)
+    return texts
+
+
+def one_ingredient_text(line: IngredientLine) -> str:
+    """A stored amount, or a name with its note when the line has no amount."""
+    if line["quantity"] is None or line["unit"] is None:
+        if line["note"]:
+            return f"{line['name']} ({line['note']})"
+        return line["name"]
+    text = f"{line['quantity']:g} {line['unit']} {line['name']}"
+    if line["note"]:
+        return f"{text} ({line['note']})"
+    return text
+
+
+def ask_gemini(prompt: str) -> str:
+    """Send one question to Gemini and return the reply text."""
+    key = os.environ.get("GEMINI_API_KEY", "").strip()
+    if key == "":
+        raise HTTPException(status_code=503, detail="The assistant is not connected yet.")
+    # The page sends the recipe and the visible chat on every question.
+    # store is false so Google is not asked to keep a conversation for the next turn.
+    try:
+        response = httpx.post(
+            GEMINI_URL,
+            headers={"x-goog-api-key": key},
+            json={
+                "model": GEMINI_MODEL,
+                "store": False,
+                "system_instruction": ASSISTANT_INSTRUCTION,
+                "input": prompt,
+            },
+            timeout=ASSISTANT_TIMEOUT_SECONDS,
+        )
+    except httpx.HTTPError:
+        raise HTTPException(status_code=502, detail="The assistant did not answer.") from None
+    if response.status_code != 200:
+        message = provider_message(response.text)
+        if message == "":
+            message = "The assistant did not answer."
+        raise HTTPException(status_code=502, detail=message)
+    reply = model_reply(response.text)
+    if reply == "":
+        raise HTTPException(status_code=502, detail="The assistant did not answer.")
+    return reply
+
+
+def provider_message(payload: str) -> str:
+    """Google's error message, when the body has one."""
+    try:
+        parsed = json.loads(payload)
+    except json.JSONDecodeError:
+        return ""
+    if not isinstance(parsed, dict):
+        return ""
+    error = parsed.get("error")
+    if not isinstance(error, dict):
+        return ""
+    message = error.get("message")
+    if not isinstance(message, str):
+        return ""
+    return message.strip()
+
+
+def model_reply(payload: str) -> str:
+    """The text of the model steps. Empty when the body has none."""
+    try:
+        parsed = json.loads(payload)
+    except json.JSONDecodeError:
+        return ""
+    if not isinstance(parsed, dict):
+        return ""
+    steps = parsed.get("steps")
+    if not isinstance(steps, list):
+        return ""
+    parts: list[str] = []
+    for step in steps:
+        if not isinstance(step, dict) or step.get("type") != "model_output":
+            continue
+        parts.extend(content_texts(step.get("content")))
+    return "\n".join(part for part in parts if part != "").strip()
+
+
+def content_texts(content: str | list[str | dict[str, str]] | None) -> list[str]:
+    """Text blocks from a model step. A plain string is one block."""
+    if isinstance(content, str):
+        return [content.strip()]
+    if not isinstance(content, list):
+        return []
+    texts: list[str] = []
+    for block in content:
+        if isinstance(block, str):
+            texts.append(block.strip())
+        elif isinstance(block, dict):
+            text = block.get("text")
+            if isinstance(text, str):
+                texts.append(text.strip())
+    return texts
 
 
 def contained_name(text: str) -> str:

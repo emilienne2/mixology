@@ -24,6 +24,8 @@ const waiting = document.querySelector("#recipe-waiting");
 let shownRecipe = null;
 let measureSystem = "us";
 let chosenPortions = null;
+let chatTurns = [];
+let exchangeNoticeShown = false;
 
 // US volume units. The metric toggle converts these to ml.
 // Under 20 ml, nearest 1. From 20 up to 100, nearest 5. From 100 up, nearest 10.
@@ -78,12 +80,34 @@ measureUs.addEventListener("click", () => {
 chatForm.addEventListener("submit", (event) => {
   event.preventDefault();
   const question = chatInput.value.trim();
-  if (!shownRecipe || question === "") {
+  if (!shownRecipe || question === "" || chatInput.disabled) {
     return;
   }
-  appendChatMessage("You", question);
+  appendChatMessage("you", question);
   chatInput.value = "";
-  appendChatMessage("Assistant", discussModification(question));
+  const earlier = chatTurns.slice();
+  setChatBusy(true);
+  discussModification(question, earlier)
+    .then((result) => {
+      if (
+        result.earlierExchangesOmitted &&
+        !exchangeNoticeShown &&
+        Number.isInteger(result.exchangesIncluded)
+      ) {
+        appendExchangeNotice(result.exchangesIncluded);
+        exchangeNoticeShown = true;
+      }
+      chatTurns.push({ role: "user", text: question }, { role: "assistant", text: result.reply });
+      appendChatMessage("assistant", result.reply);
+    })
+    .catch((error) => {
+      const message = error instanceof Error ? error.message : "Unable to ask.";
+      appendChatMessage("assistant", message);
+    })
+    .finally(() => {
+      setChatBusy(false);
+      chatInput.focus();
+    });
 });
 
 const recipePath = recipeSlug();
@@ -129,6 +153,8 @@ function showRecipe(recipe) {
 
   shownRecipe = recipe;
   chosenPortions = null;
+  chatTurns = [];
+  exchangeNoticeShown = false;
   setMeasureSystem("us");
   chatLog.replaceChildren();
   title.textContent = recipe.title;
@@ -329,9 +355,65 @@ function appendChatMessage(who, text) {
   chatLog.append(item);
 }
 
-// TODO: Send the recipe, portion count, measurement system, and question to the mixology assistant.
-function discussModification(question) {
-  return "The assistant that answers recipe changes is not connected yet.";
+function appendExchangeNotice(count) {
+  const item = document.createElement("li");
+  item.className = "chat-notice";
+  item.textContent = `AI assistant will only see the ${count} most recent exchanges going forward`;
+  chatLog.append(item);
+}
+
+function setChatBusy(busy) {
+  chatInput.disabled = busy;
+  chatForm.querySelector("button").disabled = busy;
+}
+
+function discussModification(question, earlier) {
+  return fetch(`/api/recipes/${encodeURIComponent(recipePath)}/chat`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      portions: chosenPortions,
+      measure: measureSystem,
+      question,
+      messages: earlier,
+    }),
+  })
+    .then((response) => {
+      if (response.ok) {
+        return response.json().then((body) => {
+          if (!body || typeof body.reply !== "string" || body.reply.trim() === "") {
+            throw new Error("Unable to ask.");
+          }
+          return {
+            reply: body.reply,
+            earlierExchangesOmitted: body.earlierExchangesOmitted === true,
+            exchangesIncluded: body.exchangesIncluded,
+          };
+        });
+      }
+      return response.json().then(
+        (body) => {
+          throw new Error(askFailure(body));
+        },
+        () => {
+          throw new Error("Unable to ask.");
+        },
+      );
+    })
+    .catch((error) => {
+      if (error instanceof Error && error.message.startsWith("Unable to ask")) {
+        throw error;
+      }
+      throw new Error("Unable to ask.");
+    });
+}
+
+function askFailure(body) {
+  const message = body && typeof body.detail === "string" ? body.detail.trim() : "";
+  if (message === "") {
+    return "Unable to ask.";
+  }
+  return `Unable to ask: ${message}`;
 }
 
 function pluralName(name, quantity) {

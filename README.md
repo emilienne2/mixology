@@ -1,6 +1,6 @@
 # Chez Émilienne 🥃
 
-This personal project (WIP) will be a full-stack, containerized cocktail recipe book and AI mixology assistant.
+This personal project is a full-stack, containerized cocktail recipe book and AI mixology assistant.
 
 ## 🏗️ Architecture & Stack
 
@@ -9,6 +9,8 @@ This personal project (WIP) will be a full-stack, containerized cocktail recipe 
 **Backend** Python (FastAPI), packaged with Poetry
 
 **Database** SQLite
+
+**AI Assistant** Gemini 3.5 Flash-Lite on Google's free tier. The backend calls it over HTTPS.
 
 **Deployment** Containerized with Docker Compose, designed for local hosting (TODO) on a Beelink Mini PC via Cloudflare Tunnels.
 
@@ -28,6 +30,26 @@ To spin up the frontend (Nginx) and the backend locally:
 Frontend accessible at: `http://localhost:8080` 
 
 Backend API is accessible at: `http://localhost:8000`
+
+### Using the AI Assistant via the Get Creative chat
+
+Get Creative asks Gemini 3.5 Flash-Lite how to change the recipe on the page. The FastAPI container sends the saved recipe, the portion count, the measurement system, and the question to Google, and shows the reply. The reply is not saved.
+
+This is a short suggestion about one drink, so the free tier is enough. Google runs the model. The containers stay nginx, the API, and SQLite. Google may use these free-tier requests to improve its models.
+
+Create a key in [Google AI Studio](https://aistudio.google.com/apikey) and choose **Default Gemini Project**. The project name and project number stay with that key.
+
+Put the key in a `.env` file next to `docker-compose.yml`:
+
+```
+GEMINI_API_KEY=your-key
+```
+
+`.env` is gitignored. Restart the backend after saving it:
+
+```
+docker compose up -d backend
+```
 
 ### Recipes database
 
