@@ -299,8 +299,13 @@ function displayedName(ingredient, scale) {
 }
 
 function formatIngredient(ingredient, scale) {
+  const line = ingredientAmount(ingredient, scale);
+  return ingredient.note ? `${line} (${ingredient.note})` : line;
+}
+
+function ingredientAmount(ingredient, scale) {
   if (ingredient.quantity == null || ingredient.unit == null) {
-    return ingredient.note ? `${ingredient.name} (${ingredient.note})` : ingredient.name;
+    return ingredient.name;
   }
 
   const quantity = ingredient.quantity * scale;

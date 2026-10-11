@@ -11,7 +11,7 @@
     },
     { "name": "water", "quantity": 2, "unit": "cup" },
     { "name": "clove", "quantity": 8, "unit": "count" },
-    { "name": "blackberry", "quantity": 6, "unit": "count" },
+    { "name": "blackberry", "quantity": 6, "unit": "count", "note": "or more, to taste" },
     { "name": "cinnamon stick", "quantity": 1, "unit": "count" },
     { "name": "star anise", "quantity": 3, "unit": "count" },
     { "name": "sliced orange", "quantity": 1, "unit": "count" },
@@ -19,7 +19,7 @@
       "name": "brown sugar",
       "quantity": 0.125,
       "unit": "cup",
-      "note": "up to 1/4 cup, to taste",
+      "note": "up to double the amount, to taste",
       "grams_per_cup": 220
     }
   ],
